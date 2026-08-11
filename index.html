@@ -314,15 +314,15 @@
           const channelImg = xml.querySelector('channel')?.getElementsByTagName('itunes:image')[0]?.getAttribute('href');
           const rssImg = itunesImg || mediaThumb || channelImg || 'images/website-logo.png';
 
-          // Try local episode image first (jpg then png), fall back to rssImg on error
+          // Try local episode image first (jpg then png), fall back to logo
           const localImgBase = epNum ? `images/episode-${epNum}` : null;
 
           return `<article class="card">
             <div class="card-img-wrap">
               <img
-                src="${localImgBase ? localImgBase + '.jpg' : rssImg}"
+                src="${localImgBase ? localImgBase + '.jpg' : 'images/website-logo.png'}"
                 alt="${title.replace(/"/g, '&quot;')}"
-                onerror="this.onerror=null; const base='${localImgBase}'; if(this.src.endsWith('.jpg') && base){this.src=base+'.png';}else{this.src='${rssImg}';}"
+                onerror="this.onerror=null; if(this.src.endsWith('.jpg')&&'${localImgBase}'){this.src='${localImgBase}.png';}else{this.src='images/website-logo.png';}"
               />
             </div>
             <div class="card-body">
