@@ -144,6 +144,13 @@ def build_episode_page(ep):
     transcript = ep['transcript_html']
     prev_num   = n - 1
     next_num   = ep.get('next_number')
+    local_img  = ep.get('local_img_path')
+
+    episode_img_html = (
+        f'<figure style="margin:0 0 2rem;">'
+        f'<img src="{local_img}" alt="{title}" style="width:100%;border-radius:8px;display:block;" />'
+        f'</figure>'
+    ) if local_img else ''
 
     # Short description for meta tags (160 chars max)
     meta_desc = (desc[:157] + '…') if len(desc) > 160 else desc
@@ -262,9 +269,7 @@ def build_episode_page(ep):
         </p>
       </header>
 
-      <div class="episode-photo" aria-label="Episode photo placeholder">
-        Episode photo — add image here
-      </div>
+      {episode_img_html}
 
       <div class="episode-player">
         <audio controls style="width:100%;margin-bottom:1.5rem;">
@@ -457,6 +462,28 @@ def main():
         enclosure = item.find('enclosure')
         audio_url = enclosure.get('url', '') if enclosure is not None else ''
 
+        # Download episode image from RSS if not already saved locally
+        itunes_img_el = item.find('itunes:image', NS)
+        rss_img_url = itunes_img_el.get('href') if itunes_img_el is not None else None
+        local_img_path = None
+        if rss_img_url:
+            for ext in ('jpg', 'jpeg', 'png'):
+                candidate = os.path.join(IMAGES_DIR, f'episode-{ep_num}.{ext}')
+                if os.path.exists(candidate):
+                    local_img_path = f'../images/episode-{ep_num}.{ext}'
+                    break
+            if not local_img_path:
+                try:
+                    img_bytes = fetch(rss_img_url)
+                    ext = 'jpg' if rss_img_url.lower().endswith('.jpg') or b'\xff\xd8' in img_bytes[:4] else 'png'
+                    save_path = os.path.join(IMAGES_DIR, f'episode-{ep_num}.{ext}')
+                    with open(save_path, 'wb') as f:
+                        f.write(img_bytes)
+                    local_img_path = f'../images/episode-{ep_num}.{ext}'
+                    print(f'    Image downloaded: episode-{ep_num}.{ext}')
+                except Exception as e:
+                    print(f'    Image download failed: {e}')
+
         next_num = numbered[idx + 1][0] if idx + 1 < len(numbered) else None
 
         ep_data = {
@@ -495,6 +522,7 @@ def main():
                 break
 
         ep_data['transcript_html'] = transcript_html
+        ep_data['local_img_path'] = local_img_path
 
         # Also update the previous episode's "next" nav link
         if ep_num > 1:
