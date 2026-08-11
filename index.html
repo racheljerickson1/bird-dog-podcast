@@ -2,42 +2,342 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+  <link rel="icon" href="images/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="The Bird Dog Podcast — stories, insights, and conversation."
+      content="The Bird Dog Podcast with Tyce Erickson — authoritative conversations on bird hunting, gun dogs, and the upland life."
     />
-    <title>The Bird Dog Podcast</title>
+    <title>The Bird Dog Podcast with Tyce Erickson</title>
+    <link rel="canonical" href="https://thebirddogpodcast.com/" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Bird Dog Podcast" />
+    <meta property="og:title" content="The Bird Dog Podcast with Tyce Erickson" />
+    <meta property="og:description" content="Authoritative conversations on bird hunting, gun dogs, and the upland life — hosted by Tyce Erickson of Utah Bird Dog Training." />
+    <meta property="og:image" content="https://thebirddogpodcast.com/images/website-logo.png" />
+    <meta property="og:url" content="https://thebirddogpodcast.com/" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Bird Dog Podcast with Tyce Erickson" />
+    <meta name="twitter:description" content="Authoritative conversations on bird hunting, gun dogs, and the upland life — hosted by Tyce Erickson." />
+    <meta name="twitter:image" content="https://thebirddogpodcast.com/images/website-logo.png" />
     <link rel="stylesheet" href="styles.css" />
-  </head>
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTGSD7MPC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MCTGSD7MPC');
+  </script>
+</head>
   <body>
-    <header class="site-header">
-      <p class="eyebrow">Podcast</p>
-      <h1>The Bird Dog Podcast</h1>
-      <p class="tagline">Stories, insights, and conversation worth sharing.</p>
-    </header>
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="images/website-logo.png" alt="The Bird Dog Podcast" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="episodes.html">Episodes</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
 
-    <main>
-      <section class="listen">
-        <h2>Listen now</h2>
-        <p>New episodes coming soon. Add your podcast links here when you're ready.</p>
-        <div class="listen-links">
-          <a class="button" href="#">Apple Podcasts</a>
-          <a class="button" href="#">Spotify</a>
+    <!-- Full-bleed hero — outside page-main so it spans 100% width -->
+    <section class="hero">
+      <img
+        src="images/black-lab.jpg"
+        alt="Black lab in a hunting vest with Canada geese"
+        class="hero-bg"
+      />
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="section-label">Bird Hunting &amp; Gun Dogs</p>
+        <h1>Conversations for Bird Dog People.</h1>
+        <p class="lead">
+          Training, hunting, breeding, and the experiences that come from a
+          life spent working dogs — with host Tyce Erickson.
+        </p>
+        <div class="btn-group">
+          <a href="episodes.html" class="btn btn-primary">Listen to the Latest Episode</a>
+          <a href="about.html" class="btn btn-outline" style="color:var(--wheat);border-color:var(--wheat);">About Tyce</a>
+        </div>
+      </div>
+    </section>
+
+    <main class="page-main">
+      <!-- Listen -->
+      <section class="section-block">
+        <p class="section-label">Listen</p>
+        <h2>Find us on your favorite platform</h2>
+        <div class="btn-group">
+          <a href="https://podcasts.apple.com/us/podcast/the-bird-dog-podcast/id1685804225" class="btn btn-secondary" target="_blank" rel="noopener">Apple Podcasts</a>
+          <a href="https://open.spotify.com/show/53ilsNPxZ7pPlVF27GxyRc" class="btn btn-secondary" target="_blank" rel="noopener">Spotify</a>
+          <a href="https://music.amazon.com/podcasts/ae1b5ad2-8148-4c20-b679-09448b900672" class="btn btn-secondary" target="_blank" rel="noopener">Amazon Music</a>
         </div>
       </section>
 
-      <section class="about">
-        <h2>About the show</h2>
-        <p>
-          Welcome to The Bird Dog Podcast. Use this space to introduce your show,
-          your hosts, and what listeners can expect each episode.
+      <!-- Recent episodes — populated dynamically from RSS feed -->
+      <section class="section-block">
+        <p class="section-label">Latest</p>
+        <h2>Recent Episodes</h2>
+        <div class="card-grid" id="recent-episodes-grid">
+          <!-- JS fills this in; static fallback shown while loading -->
+          <article class="card">
+            <div class="card-img-wrap">
+              <img src="images/episode-54.jpg" alt="Dove Hunting and getting your dog ready for the hunt" />
+            </div>
+            <div class="card-body">
+              <p class="card-episode-num">Episode 54</p>
+              <h3><a href="episodes/episode-54.html">Dove Hunting and Getting Your Dog Ready for the Hunt</a></h3>
+              <p class="card-meta">August 1, 2026</p>
+              <p>Tyce covers dove hunting strategy and how to get your bird dog prepped and ready before opening day of dove season.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img-wrap">
+              <img src="images/episode-53.jpg" alt="Does Your Dog Destroy Your Yard or House When You Are Not There?" />
+            </div>
+            <div class="card-body">
+              <p class="card-episode-num">Episode 53</p>
+              <h3><a href="episodes/episode-53.html">Does Your Dog Destroy Your Yard or House When You Are Not There?</a></h3>
+              <p class="card-meta">July 21, 2026</p>
+              <p>Tyce digs into destructive dog behavior — what causes it, how to address it, and how to set your dog up for success when home alone.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img-wrap">
+              <img src="images/golden-retriever-puppies.png" alt="Two golden retriever puppies" />
+            </div>
+            <div class="card-body">
+              <p class="card-episode-num">Episode 52</p>
+              <h3><a href="episodes/episode-52.html">Running Two Dogs at the Same Time</a></h3>
+              <p class="card-meta">June 2026</p>
+              <p>What does it take to handle two dogs at once in the field? Tyce covers the training, coordination, and real-world challenges.</p>
+            </div>
+          </article>
+        </div>
+        <p style="margin-top: 1.5rem">
+          <a href="episodes.html" class="btn btn-outline" id="all-episodes-link">View all episodes</a>
         </p>
+      </section>
+
+      <!-- Explore -->
+      <section class="section-block">
+        <p class="section-label">Explore</p>
+        <h2>More from the show</h2>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-img-wrap">
+              <img
+                src="images/tyce-training.jpg"
+                alt="Tyce Erickson training a golden retriever in a field"
+              />
+            </div>
+            <div class="card-body">
+              <h3><a href="partners.html">Partners</a></h3>
+              <p>Brands and organizations we trust in the field.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img-wrap">
+              <img
+                src="images/tyce-hunting.jpg"
+                alt="Tyce Erickson hunting with his golden retriever"
+              />
+            </div>
+            <div class="card-body">
+              <h3><a href="resources.html">Resources</a></h3>
+              <p>Training guides, gear, and links worth knowing.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img-wrap">
+              <img
+                src="images/field-scene.jpg"
+                alt="Bird hunting at dawn"
+              />
+            </div>
+            <div class="card-body">
+              <h3><a href="about.html">About Tyce</a></h3>
+              <p>Meet the host and the story behind the podcast.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="contact-band">
+        <div class="contact-band-inner">
+          <div class="contact-band-intro">
+            <p class="section-label" style="color:var(--wheat-dark,#c8a96e);">Get in Touch</p>
+            <h2>Ready to Work Together?</h2>
+            <p>
+              Sponsorships, partnerships, guest appearances, or just a question —
+              send a note and Tyce will get back to you.
+            </p>
+            <div style="margin-top:1.5rem;font-size:0.9rem;opacity:0.85;">
+              ✉ <a href="mailto:office@utahbirddogtraining.com" style="color:inherit;">office@utahbirddogtraining.com</a>
+            </div>
+          </div>
+          <div id="hp-form-success" style="display:none; padding:1rem 1.25rem; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.4); border-radius:8px; color:var(--white); margin-bottom:1rem;">
+            ✓ Message sent! We'll be in touch soon.
+          </div>
+          <div id="hp-form-error" style="display:none; padding:0.75rem 1rem; background:rgba(200,0,0,0.2); border:1px solid rgba(200,0,0,0.4); border-radius:8px; color:#ffcccc; margin-bottom:1rem; font-size:0.85rem;">
+            Something went wrong. Please try again or email us directly.
+          </div>
+
+          <form class="contact-band-form" id="homepage-contact-form">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+              <div class="cform-group">
+                <label>First Name</label>
+                <input type="text" name="first_name" required placeholder="First" />
+              </div>
+              <div class="cform-group">
+                <label>Last Name</label>
+                <input type="text" name="last_name" placeholder="Last" />
+              </div>
+            </div>
+            <div class="cform-group">
+              <label>Email</label>
+              <input type="email" name="email" required placeholder="you@example.com" />
+            </div>
+            <div class="cform-group">
+              <label>Message</label>
+              <textarea name="message" required placeholder="What's on your mind?"></textarea>
+            </div>
+            <button type="submit" id="hp-submit-btn" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:0.25rem;">Send Message</button>
+          </form>
+
+          <script>
+            document.getElementById('homepage-contact-form').addEventListener('submit', async function(e) {
+              e.preventDefault();
+              const btn = document.getElementById('hp-submit-btn');
+              const success = document.getElementById('hp-form-success');
+              const error = document.getElementById('hp-form-error');
+              btn.disabled = true;
+              btn.textContent = 'Sending…';
+              try {
+                const res = await fetch('https://formspree.io/f/moeadkgo', {
+                  method: 'POST',
+                  body: new FormData(this),
+                  headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                  this.style.display = 'none';
+                  success.style.display = 'block';
+                } else {
+                  error.style.display = 'block';
+                  btn.disabled = false;
+                  btn.textContent = 'Send Message';
+                }
+              } catch(err) {
+                error.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Send Message';
+              }
+            });
+          </script>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-band">
+        <h2>Never miss an episode</h2>
+        <p>
+          Subscribe on your favorite platform and join a community of bird
+          hunters and dog handlers who take the craft seriously.
+        </p>
+        <a href="episodes.html" class="btn btn-primary">Start Listening</a>
       </section>
     </main>
 
-    <footer>
-      <p>&copy; 2026 The Bird Dog Podcast</p>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-brand">The Bird Dog Podcast</p>
+        <ul class="footer-links">
+          <li><a href="episodes.html">Episodes</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+                <div class="footer-social-row">
+          <a href="https://www.instagram.com/thebirddogpodcast/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+        </div>
+        <p class="footer-copy">&copy; 2026 The Bird Dog Podcast with Tyce Erickson. All rights reserved.</p>
+      </div>
     </footer>
+    <script>
+    (async function loadRecentEpisodes() {
+      const RSS_URL = 'https://feeds.buzzsprout.com/2157578.rss';
+      try {
+        const resp = await fetch(RSS_URL);
+        if (!resp.ok) return;
+        const text = await resp.text();
+        const xml = new DOMParser().parseFromString(text, 'application/xml');
+        const items = Array.from(xml.querySelectorAll('item')).slice(0, 3);
+        if (!items.length) return;
+
+        const grid = document.getElementById('recent-episodes-grid');
+        const allLink = document.getElementById('all-episodes-link');
+        if (!grid) return;
+
+        // Update total episode count on "View all" button
+        const totalEps = xml.querySelectorAll('item').length;
+        if (allLink) allLink.textContent = `View all ${totalEps} episodes`;
+
+        grid.innerHTML = items.map(item => {
+          const title = item.querySelector('title')?.textContent?.trim() ?? '';
+          const pubDate = item.querySelector('pubDate')?.textContent ?? '';
+          const rawDesc = item.querySelector('description')?.textContent ?? '';
+          const desc = rawDesc.replace(/<[^>]*>/g, '').trim().slice(0, 140).replace(/\s\S+$/, '') + '\u2026';
+
+          // Episode number — itunes:episode or parse from title
+          const epEl = item.getElementsByTagName('itunes:episode')[0];
+          let epNum = epEl?.textContent?.trim();
+          if (!epNum) {
+            const m = title.match(/EP\.?\s*(\d+)|#(\d+)|episode\s+(\d+)/i);
+            epNum = m ? (m[1] || m[2] || m[3]) : null;
+          }
+
+          // Image — prefer a local episode image, fall back to RSS/channel artwork
+          const itunesImg = item.getElementsByTagName('itunes:image')[0]?.getAttribute('href');
+          const mediaThumb = item.getElementsByTagName('media:thumbnail')[0]?.getAttribute('url');
+          const channelImg = xml.querySelector('channel')?.getElementsByTagName('itunes:image')[0]?.getAttribute('href');
+          const rssImg = itunesImg || mediaThumb || channelImg || 'images/website-logo.png';
+
+          // Try local episode image first (jpg then png), fall back to rssImg on error
+          const localImgBase = epNum ? `images/episode-${epNum}` : null;
+
+          return `<article class="card">
+            <div class="card-img-wrap">
+              <img
+                src="${localImgBase ? localImgBase + '.jpg' : rssImg}"
+                alt="${title.replace(/"/g, '&quot;')}"
+                onerror="this.onerror=null; const base='${localImgBase}'; if(this.src.endsWith('.jpg') && base){this.src=base+'.png';}else{this.src='${rssImg}';}"
+              />
+            </div>
+            <div class="card-body">
+              ${epNum ? `<p class="card-episode-num">Episode ${epNum}</p>` : ''}
+              <h3><a href="${epLink}">${title}</a></h3>
+              ${dateStr ? `<p class="card-meta">${dateStr}</p>` : ''}
+              <p>${desc}</p>
+            </div>
+          </article>`;
+        }).join('\n');
+
+      } catch (e) {
+        // Network or parse error — static fallback cards remain visible
+      }
+    })();
+    </script>
   </body>
 </html>

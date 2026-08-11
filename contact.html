@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  <link rel="icon" href="images/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contact The Bird Dog Podcast with Tyce Erickson. Reach out about sponsorships, collaborations, or general questions." />
+    <title>Contact — The Bird Dog Podcast</title>
+    <link rel="canonical" href="https://thebirddogpodcast.com/contact.html" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Bird Dog Podcast" />
+    <meta property="og:title" content="Contact — The Bird Dog Podcast" />
+    <meta property="og:description" content="Reach out to Tyce Erickson and The Bird Dog Podcast about sponsorships, collaborations, or general questions." />
+    <meta property="og:image" content="https://thebirddogpodcast.com/images/website-logo.png" />
+    <meta property="og:url" content="https://thebirddogpodcast.com/contact.html" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .contact-layout {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 4rem;
+        align-items: start;
+        margin-top: 2rem;
+      }
+      .contact-intro h1 {
+        font-size: clamp(2.2rem, 5vw, 3.4rem);
+        line-height: 1.1;
+        color: var(--bark);
+        margin-bottom: 1rem;
+      }
+      .contact-intro p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+      }
+      .contact-detail {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+      }
+      .contact-detail a {
+        color: var(--forest);
+        text-decoration: none;
+      }
+      .contact-detail a:hover { text-decoration: underline; }
+
+      .contact-form-card {
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 2.5rem;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.25rem;
+      }
+      .form-group label {
+        font-family: system-ui, sans-serif;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 0.4rem;
+      }
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        padding: 0.7rem 1rem;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-family: inherit;
+        color: var(--text);
+        background: white;
+        transition: border-color 0.15s;
+        outline: none;
+      }
+      .form-group input:focus,
+      .form-group textarea:focus,
+      .form-group select:focus {
+        border-color: var(--forest);
+      }
+      .form-group textarea {
+        min-height: 130px;
+        resize: vertical;
+      }
+      .form-submit {
+        margin-top: 0.5rem;
+      }
+      .form-note {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        margin-top: 1rem;
+      }
+
+      @media (max-width: 700px) {
+        .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+        .form-row { grid-template-columns: 1fr; }
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTGSD7MPC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MCTGSD7MPC');
+  </script>
+</head>
+  <body>
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="images/website-logo.png" alt="The Bird Dog Podcast" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="episodes.html">Episodes</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="page-main">
+      <div class="contact-layout">
+
+        <!-- Left: intro -->
+        <div class="contact-intro">
+          <p class="section-label">Get in Touch</p>
+          <h1>Ready to Work Together?</h1>
+          <p>
+            Whether you're interested in sponsoring the show, collaborating on
+            content, or just have a question — send a note and Tyce will get
+            back to you.
+          </p>
+          <p>
+            Looking to work with Tyce on dog training? Head over to
+            <a href="https://www.utahbirddogtraining.com" target="_blank" rel="noopener">Utah Bird Dog Training</a>.
+          </p>
+          <div class="contact-detail">
+            <span>✉</span>
+            <a href="mailto:office@utahbirddogtraining.com">office@utahbirddogtraining.com</a>
+          </div>
+          <div class="contact-detail">
+            <span>📷</span>
+            <a href="https://www.instagram.com/thebirddogpodcast/" target="_blank" rel="noopener">@thebirddogpodcast</a>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="contact-form-card">
+          <div id="contact-success" style="display:none; padding:1.5rem; background:#f0f7f0; border:1px solid #a3c9a3; border-radius:8px; color:#2d5a2d; margin-bottom:1rem;">
+            ✓ Message sent! We'll get back to you within a couple business days.
+          </div>
+          <div id="contact-error" style="display:none; padding:1rem; background:#fff0f0; border:1px solid #f0a3a3; border-radius:8px; color:#8b0000; margin-bottom:1rem;">
+            Something went wrong. Please try again or email <a href="mailto:office@utahbirddogtraining.com">office@utahbirddogtraining.com</a> directly.
+          </div>
+
+          <form id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First Name <span style="color:var(--bark)">*</span></label>
+                <input type="text" id="first-name" name="first_name" required placeholder="Tyce" />
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last_name" placeholder="Erickson" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email <span style="color:var(--bark)">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="subject">What's this about?</label>
+              <select id="subject" name="subject">
+                <option value="">Select a topic…</option>
+                <option value="sponsorship">Sponsorship / Partnership</option>
+                <option value="guest">Guest Appearance</option>
+                <option value="training">Dog Training Inquiry</option>
+                <option value="puppies">Puppy / Breeding Inquiry</option>
+                <option value="general">General Question</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message <span style="color:var(--bark)">*</span></label>
+              <textarea id="message" name="message" required placeholder="Tell us what's on your mind…"></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit" id="contact-submit-btn" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
+            </div>
+            <p class="form-note">We'll get back to you within a couple business days.</p>
+          </form>
+
+          <script>
+            document.getElementById('contact-form').addEventListener('submit', async function(e) {
+              e.preventDefault();
+              const btn = document.getElementById('contact-submit-btn');
+              const success = document.getElementById('contact-success');
+              const error = document.getElementById('contact-error');
+              btn.disabled = true;
+              btn.textContent = 'Sending…';
+              try {
+                const res = await fetch('https://formspree.io/f/moeadkgo', {
+                  method: 'POST',
+                  body: new FormData(this),
+                  headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                  this.style.display = 'none';
+                  success.style.display = 'block';
+                } else {
+                  error.style.display = 'block';
+                  btn.disabled = false;
+                  btn.textContent = 'Send Message';
+                }
+              } catch(err) {
+                error.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Send Message';
+              }
+            });
+          </script>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-brand">The Bird Dog Podcast</p>
+        <ul class="footer-links">
+          <li><a href="episodes.html">Episodes</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+                <div class="footer-social-row">
+          <a href="https://www.instagram.com/thebirddogpodcast/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+        </div>
+        <p class="footer-copy">&copy; 2026 The Bird Dog Podcast with Tyce Erickson. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
