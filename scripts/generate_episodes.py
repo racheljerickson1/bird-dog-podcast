@@ -461,7 +461,15 @@ def main():
         resources = extract_resources(raw_desc)
 
         duration_el = item.find('itunes:duration', NS)
-        duration = duration_el.text.strip() if duration_el is not None else ''
+        raw_dur = duration_el.text.strip() if duration_el is not None else ''
+        # Convert raw seconds to MM:SS or HH:MM:SS
+        if raw_dur.isdigit():
+            secs = int(raw_dur)
+            h, rem = divmod(secs, 3600)
+            m, s = divmod(rem, 60)
+            duration = f'{h}:{m:02d}:{s:02d}' if h else f'{m}:{s:02d}'
+        else:
+            duration = raw_dur
 
         enclosure = item.find('enclosure')
         audio_url = enclosure.get('url', '') if enclosure is not None else ''
