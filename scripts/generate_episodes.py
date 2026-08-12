@@ -369,9 +369,13 @@ def update_episodes_list(all_episodes):
     items = []
     for ep in sorted(all_episodes, key=lambda e: -e['number']):
         date_short = ep.get('date_short', ep.get('date_display', ''))
+        n = ep['number']
+        # Thumbnail: prefer jpg, fall back to png, then logo
+        thumb_src = f'images/episode-{n}.jpg'
         items.append(f'''        <li>
-          <a href="episodes/episode-{ep['number']}.html">
-            <span class="episode-num">{ep['number']}</span>
+          <a href="episodes/episode-{n}.html">
+            <img class="episode-thumb" src="{thumb_src}" alt="Episode {n}" onerror="this.onerror=null;this.src=this.src.endsWith('.jpg')?'images/episode-{n}.png':'images/logo.png';" />
+            <span class="episode-num">{n}</span>
             <span class="episode-info">
               <h3>{ep['title']}</h3>
               <span class="date">{date_short}</span>
