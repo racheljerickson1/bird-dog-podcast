@@ -305,6 +305,16 @@
           // Try local episode image first (jpg then png), fall back to logo
           const localImgBase = epNum ? `images/episode-${epNum}` : null;
 
+          // Episode page link
+          const epLink = epNum ? `episodes/episode-${epNum}.html` : '#';
+
+          // Formatted date
+          let dateStr = '';
+          if (pubDate) {
+            const d = new Date(pubDate);
+            if (!isNaN(d)) dateStr = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+          }
+
           return `<article class="card">
             <div class="card-img-wrap">
               <img
