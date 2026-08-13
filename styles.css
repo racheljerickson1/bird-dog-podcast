@@ -753,15 +753,15 @@ img.about-photo {
 
 .partner-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
 }
 
 .partner-card {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 2rem 1.5rem;
+  padding: 1.5rem 1rem;
   text-align: center;
 }
 
@@ -1074,6 +1074,10 @@ img.about-photo {
 /* ── Responsive ── */
 
 @media (max-width: 768px) {
+  .partner-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .hero {
     grid-template-columns: 1fr;
     gap: 2rem;
