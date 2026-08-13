@@ -703,6 +703,40 @@ img.about-photo {
   margin-bottom: 0;
 }
 
+/* Work With Tyce — training callout section */
+
+.about-training {
+  background: var(--bark);
+  padding: 4rem 1.5rem;
+}
+
+.about-training-inner {
+  max-width: 48rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-training h2 {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+}
+
+.about-training p {
+  font-size: 1rem;
+  color: var(--tan);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.about-training .btn {
+  margin-top: 1rem;
+}
+
 @media (max-width: 900px) {
   .about-behind-grid,
   .about-meet-grid {
