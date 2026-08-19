@@ -32,18 +32,60 @@ NS = {
     'podcast': 'https://podcastindex.org/namespace/1.0',
 }
 
-BOILERPLATE_PATTERNS = [
-    r'Become a supporter.*',
-    r'Support.*podcast.*',
-    r'Follow.*on Instagram.*',
-    r'Follow.*on Facebook.*',
-    r'Subscribe.*wherever.*',
-    r'Leave.*review.*',
-    r'Episode \d+ Show Notes.*',
-    r'Show Notes.*Episode \d+.*',
+BOILERPLATE_CUTOFFS = [
+    r'Products\s*&\s*Resources',
+    r'Have a Question',
+    r'Training\s*&\s*Breeding',
+    r'Follow Along',
+    r'Thanks for listening',
+    r'Become a supporter',
+    r'Support the show',
+]
+
+SKIP_RESOURCE_HOSTS = (
+    'buzzsprout.com', 'apple.com', 'spotify.com', 'thebirddogpodcast.com',
+    'gunshyfix.com', 'kuranda.com', 'nuvet.com', 'utahbirddogtraining.com',
+    'fieldbredgoldenretrievers.com', 'utahpointinglabs.com',
+)
+
+STANDARD_RESOURCES = [
+    ('https://www.gunshyfix.com', 'The Gunshy Fix', 'Sound conditioning program for gunshy dogs.'),
+    ('https://kuranda.com/?partner=26722&amp;utm_medium=affiliate&amp;utm_campaign=KurandaPartnerProgram&amp;utm_source=partners.kuranda.com', 'Kuranda Dog Beds', 'Elevated, chew-proof dog beds built for working dogs.'),
+    ('https://www.nuvet.com/56496', 'NuVet', 'Cold-pressed supplements for optimal dog health.'),
+    ('https://www.utahbirddogtraining.com', 'Utah Bird Dog Training', "Tyce's professional training services."),
+    ('https://www.fieldbredgoldenretrievers.com', 'Field Bred Golden Retrievers', "Tyce and Rachel's golden retriever breeding program."),
+    ('https://www.utahpointinglabs.com', 'Utah Pointing Labs', "Tyce's pointing lab breeding program."),
 ]
 
 FILLER = re.compile(r'\b(um+|uh+|hmm+|mhm+|uh-huh)\b', re.I)
+
+GA_SNIPPET = '''    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTGSD7MPC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MCTGSD7MPC');
+    </script>'''
+
+FOOTER_HTML = '''    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-brand">The Bird Dog Podcast</p>
+        <ul class="footer-links">
+          <li><a href="../episodes.html">Episodes</a></li>
+          <li><a href="../partners.html">Partners</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        <div class="footer-social-row">
+          <a href="https://www.instagram.com/thebirddogpodcast/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+        </div>
+        <p class="footer-copy">&copy; 2026 The Bird Dog Podcast with Tyce Erickson. All rights reserved.</p>
+      </div>
+    </footer>'''
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -54,37 +96,73 @@ def fetch(url, timeout=20):
         return r.read()
 
 
+def unescape(text):
+    return (text.replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
+                .replace('&nbsp;', ' ').replace('&apos;', "'").replace('&#39;', "'")
+                .replace('&quot;', '"'))
+
+
+def clean_title(raw, ep_num=None):
+    """Strip duplicated Ep. N prefixes from Buzzsprout titles."""
+    t = re.sub(r'^\s*\(?\s*Ep\.?\s*\d+\s*\)?\s*[:.\-]?\s*', '', raw or '', flags=re.I)
+    t = re.sub(r'\s+', ' ', t).strip()
+    return t or (raw or f'Episode {ep_num}')
+
+
+def guess_guest_name(title):
+    """If the title ends with '& First Last', use that as the guest speaker label."""
+    m = re.search(r'&\s*([A-Z][a-z]+\s+[A-Z][a-z]+)\s*$', title or '')
+    if m:
+        return m.group(1).strip()
+    return None
+
+
 def clean_description(raw_html):
-    """Strip HTML and boilerplate from RSS description."""
-    text = re.sub(r'<[^>]+>', ' ', raw_html)
-    text = re.sub(r'&amp;', '&', text)
-    text = re.sub(r'&lt;', '<', text)
-    text = re.sub(r'&gt;', '>', text)
-    text = re.sub(r'&nbsp;', ' ', text)
-    text = re.sub(r'&#\d+;', '', text)
-    lines = [l.strip() for l in text.splitlines()]
-    clean = []
-    for line in lines:
-        skip = False
-        for pat in BOILERPLATE_PATTERNS:
-            if re.search(pat, line, re.I):
-                skip = True
-                break
-        if not skip and line:
-            clean.append(line)
-    return ' '.join(clean).strip()
+    """Return episode-only paragraphs, cutting off the standard RSS partner boilerplate."""
+    parts = re.findall(r'<p[^>]*>(.*?)</p>', raw_html or '', flags=re.I | re.S)
+    if not parts:
+        text = unescape(re.sub(r'<[^>]+>', ' ', raw_html or ''))
+        text = re.sub(r'\s+', ' ', text).strip()
+        return [text] if text else []
 
-
-def extract_resources(desc_text):
-    """Pull any URLs mentioned in description text into a resource list."""
-    urls = re.findall(r'https?://\S+', desc_text)
-    resources = []
-    for u in urls:
-        u = u.rstrip('.,)')
-        if 'buzzsprout' in u or 'apple' in u or 'spotify' in u:
+    paras = []
+    for p in parts:
+        text = unescape(re.sub(r'<[^>]+>', ' ', p))
+        text = re.sub(r'\s+', ' ', text).strip()
+        if not text:
             continue
+        if any(re.search(pat, text, re.I) for pat in BOILERPLATE_CUTOFFS):
+            break
+        if re.fullmatch(r'https?://\S+', text) or text.lower().startswith('website:'):
+            continue
+        paras.append(text)
+    return paras
+
+
+def extract_resources(raw_html):
+    """Pull unique episode-specific hrefs from the RSS HTML (not partner boilerplate)."""
+    hrefs = re.findall(r'''href=['"]([^'"]+)['"]''', raw_html or '')
+    resources, seen = [], set()
+    for u in hrefs:
+        u = unescape(u).strip()
+        if not u.startswith('http') or '<' in u or '>' in u:
+            continue
+        lower = u.lower()
+        if any(h in lower for h in SKIP_RESOURCE_HOSTS):
+            continue
+        if u in seen:
+            continue
+        seen.add(u)
         resources.append(u)
     return resources
+
+
+def resource_label(url):
+    host = re.sub(r'^https?://(www\.)?', '', url).split('/')[0]
+    if 'instagram.com' in host:
+        handle = url.rstrip('/').split('/')[-1]
+        return f'@{handle} on Instagram' if handle else 'Instagram'
+    return host
 
 
 def parse_date(date_str):
@@ -98,15 +176,18 @@ def parse_date(date_str):
     return date_str, date.today().isoformat()
 
 
-def transcript_to_html(segments):
+def transcript_to_html(segments, guest_name=None):
     """Convert Buzzsprout JSON transcript segments to HTML paragraphs."""
     paras, cur_speaker, cur_words, cur_end = [], None, [], 0
     for seg in segments:
         speaker = (seg.get('speaker') or 'Tyce').strip() or 'Tyce'
-        # Normalise speaker names
-        if speaker.lower().startswith('tyce') or speaker == 'Speaker':
+        sl = speaker.lower()
+        if sl.startswith('tyce') or sl in ('speaker', 'speaker 1', 'speaker 3'):
             speaker = 'Tyce'
+        elif sl in ('speaker 2', 'speaker2') and guest_name:
+            speaker = guest_name
         body = FILLER.sub('', seg.get('body', '')).strip()
+        body = re.sub(r'\s+,', ',', body)
         body = re.sub(r'  +', ' ', body)
         if not body:
             continue
@@ -139,7 +220,9 @@ def build_episode_page(ep):
     date_iso   = ep['date_iso']
     duration   = ep['duration']
     audio_url  = ep['audio_url']
-    desc       = ep['description']
+    desc_paras = ep.get('description_paras') or []
+    if not desc_paras and ep.get('description'):
+        desc_paras = [ep['description']]
     resources  = ep['resources']
     transcript = ep['transcript_html']
     prev_num   = n - 1
@@ -152,14 +235,20 @@ def build_episode_page(ep):
         f'</figure>'
     ) if local_img else ''
 
+    og_image = (
+        f'{BASE_URL}/images/{os.path.basename(local_img)}'
+        if local_img else f'{BASE_URL}/images/website-logo.png'
+    )
+
     # Short description for meta tags (160 chars max)
-    meta_desc = (desc[:157] + '…') if len(desc) > 160 else desc
+    desc_flat = ' '.join(desc_paras)
+    meta_desc = (desc_flat[:157] + '…') if len(desc_flat) > 160 else desc_flat
     meta_desc = meta_desc.replace('"', '&quot;')
 
     page_title = f'Ep. {n}: {title} — The Bird Dog Podcast'
 
-    # Show notes body
-    show_notes_html = f'<p>{desc}</p>\n'
+    # Show notes body — episode copy only, plus a training link
+    show_notes_html = ''.join(f'          <p>{p}</p>\n' for p in desc_paras)
     show_notes_html += '''          <p>
             Questions about the training topics in this episode? Tyce works with bird dog
             owners and hunters through
@@ -167,14 +256,16 @@ def build_episode_page(ep):
             Reach out to work with him directly.
           </p>'''
 
-    # Resources list
-    resource_items = [
-        '<li><strong><a href="https://www.gunshyfix.com" target="_blank" rel="noopener">The Gunshy Fix</a></strong> — Sound conditioning program for gunshy dogs.</li>',
-        '<li><strong><a href="https://kuranda.com/?partner=26722&amp;utm_medium=affiliate&amp;utm_campaign=KurandaPartnerProgram&amp;utm_source=partners.kuranda.com" target="_blank" rel="noopener">Kuranda Dog Beds</a></strong> — Elevated, chew-proof dog beds.</li>',
-        '<li><strong><a href="https://www.utahbirddogtraining.com" target="_blank" rel="noopener">Utah Bird Dog Training</a></strong> — Tyce\'s professional training services.</li>',
-    ]
+    # Resources: episode-specific links first, then standard partners
+    resource_items = []
     for r in resources:
-        resource_items.append(f'<li><a href="{r}" target="_blank" rel="noopener">{r}</a></li>')
+        resource_items.append(
+            f'<li><strong><a href="{r}" target="_blank" rel="noopener">{resource_label(r)}</a></strong></li>'
+        )
+    for href, label, blurb in STANDARD_RESOURCES:
+        resource_items.append(
+            f'<li><strong><a href="{href}" target="_blank" rel="noopener">{label}</a></strong> — {blurb}</li>'
+        )
 
     # Transcript section
     if transcript:
@@ -212,13 +303,13 @@ def build_episode_page(ep):
     <meta property="og:site_name" content="The Bird Dog Podcast" />
     <meta property="og:title" content="{page_title}" />
     <meta property="og:description" content="{meta_desc}" />
-    <meta property="og:image" content="{BASE_URL}/images/website-logo.png" />
+    <meta property="og:image" content="{og_image}" />
     <meta property="og:url" content="{BASE_URL}/episodes/episode-{n}.html" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="{page_title}" />
     <meta name="twitter:description" content="{meta_desc}" />
-    <meta name="twitter:image" content="{BASE_URL}/images/website-logo.png" />
+    <meta name="twitter:image" content="{og_image}" />
     <link rel="stylesheet" href="../styles.css" />
     <script type="application/ld+json">
     {{
@@ -240,6 +331,7 @@ def build_episode_page(ep):
       }}
     }}
     </script>
+{GA_SNIPPET}
   </head>
   <body>
     <nav class="site-nav">
@@ -248,10 +340,11 @@ def build_episode_page(ep):
           <img src="../images/website-logo.png" alt="The Bird Dog Podcast" />
         </a>
         <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
           <li><a href="../episodes.html" class="active">Episodes</a></li>
           <li><a href="../partners.html">Partners</a></li>
-          <li><a href="../resources.html">Resources</a></li>
           <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -319,18 +412,7 @@ def build_episode_page(ep):
       </nav>
     </main>
 
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <p class="footer-brand">The Bird Dog Podcast</p>
-        <ul class="footer-links">
-          <li><a href="../episodes.html">Episodes</a></li>
-          <li><a href="../partners.html">Partners</a></li>
-          <li><a href="../resources.html">Resources</a></li>
-          <li><a href="../about.html">About</a></li>
-        </ul>
-        <p class="footer-copy">&copy; 2026 The Bird Dog Podcast with Tyce Erickson. All rights reserved.</p>
-      </div>
-    </footer>
+{FOOTER_HTML}
   </body>
 </html>'''
 
@@ -403,7 +485,7 @@ def update_sitemap(all_episodes):
         (f'{BASE_URL}/episodes.html', today, 'weekly', '0.9'),
         (f'{BASE_URL}/about.html', today, 'monthly', '0.8'),
         (f'{BASE_URL}/partners.html', today, 'monthly', '0.7'),
-        (f'{BASE_URL}/resources.html', today, 'monthly', '0.7'),
+        (f'{BASE_URL}/contact.html', today, 'monthly', '0.7'),
     ]
     for ep in all_episodes:
         urls.append((
@@ -451,14 +533,15 @@ def main():
     for idx, (ep_num, item) in enumerate(numbered):
         ep_file = os.path.join(EPISODES_DIR, f'episode-{ep_num}.html')
 
-        title     = (item.findtext('title') or f'Episode {ep_num}').strip()
+        title     = clean_title((item.findtext('title') or f'Episode {ep_num}').strip(), ep_num)
         pub_date  = item.findtext('pubDate') or ''
         date_disp, date_iso = parse_date(pub_date)
         date_short = datetime.strptime(date_iso, '%Y-%m-%d').strftime('%b %d, %Y') if date_iso else ''
 
         raw_desc = item.findtext('description') or item.find('itunes:summary', NS) and item.find('itunes:summary', NS).text or ''
-        desc = clean_description(raw_desc)
+        desc_paras = clean_description(raw_desc)
         resources = extract_resources(raw_desc)
+        guest_name = guess_guest_name(title)
 
         duration_el = item.find('itunes:duration', NS)
         raw_dur = duration_el.text.strip() if duration_el is not None else ''
@@ -506,7 +589,8 @@ def main():
             'date_short':   date_short,
             'duration':     duration,
             'audio_url':    audio_url,
-            'description':  desc,
+            'description':  ' '.join(desc_paras),
+            'description_paras': desc_paras,
             'resources':    resources,
             'transcript_html': '',
             'next_number':  next_num,
@@ -527,7 +611,7 @@ def main():
                     t_data = json.loads(fetch(t_el.get('url')))
                     segments = t_data.get('segments', [])
                     if segments:
-                        transcript_html = transcript_to_html(segments)
+                        transcript_html = transcript_to_html(segments, guest_name=guest_name)
                         print(f'    Transcript downloaded ({len(segments)} segments)')
                 except Exception as e:
                     print(f'    Transcript fetch failed: {e}')
