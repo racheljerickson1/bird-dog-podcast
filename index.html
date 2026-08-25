@@ -271,7 +271,19 @@
         if (!resp.ok) return;
         const text = await resp.text();
         const xml = new DOMParser().parseFromString(text, 'application/xml');
-        const items = Array.from(xml.querySelectorAll('item')).slice(0, 3);
+        const epNumFrom = (item) => {
+          const epEl = item.getElementsByTagName('itunes:episode')[0];
+          let n = epEl?.textContent?.trim();
+          if (!n) {
+            const title = item.querySelector('title')?.textContent || '';
+            const m = title.match(/EP\.?\s*(\d+)|#(\d+)|episode\s+(\d+)/i);
+            n = m ? (m[1] || m[2] || m[3]) : '0';
+          }
+          return parseInt(n, 10) || 0;
+        };
+        const items = Array.from(xml.querySelectorAll('item'))
+          .sort((a, b) => epNumFrom(b) - epNumFrom(a))
+          .slice(0, 3);
         if (!items.length) return;
 
         const grid = document.getElementById('recent-episodes-grid');
