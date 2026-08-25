@@ -316,6 +316,7 @@
 
           // Try local episode image first (jpg then png), fall back to logo
           const localImgBase = epNum ? `images/episode-${epNum}` : null;
+          const imgPosition = { '57': 'center top' }[epNum] || 'center';
 
           // Episode page link
           const epLink = epNum ? `episodes/episode-${epNum}.html` : '#';
@@ -332,6 +333,7 @@
               <img
                 src="${localImgBase ? localImgBase + '.jpg' : 'images/website-logo.png'}"
                 alt="${title.replace(/"/g, '&quot;')}"
+                style="object-position:${imgPosition}"
                 onerror="this.onerror=null; if(this.src.endsWith('.jpg')&&'${localImgBase}'){this.src='${localImgBase}.png';}else{this.src='images/website-logo.png';}"
               />
             </div>
