@@ -22,7 +22,7 @@ from datetime import datetime, date
 
 # ── Config ────────────────────────────────────────────────────────────────────
 RSS_URL      = 'https://feeds.buzzsprout.com/2157578.rss'
-BASE_URL     = 'https://thebirddogpodcast.com'
+BASE_URL     = 'https://www.thebirddogpodcast.com'
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EPISODES_DIR = os.path.join(PROJECT_ROOT, 'episodes')
 IMAGES_DIR   = os.path.join(PROJECT_ROOT, 'images')
@@ -322,7 +322,7 @@ def build_episode_page(ep):
       "partOfSeries": {{
         "@type": "PodcastSeries",
         "name": "The Bird Dog Podcast",
-        "url": "{BASE_URL}"
+        "url": "{BASE_URL}/"
       }},
       "author": {{
         "@type": "Person",
@@ -336,11 +336,11 @@ def build_episode_page(ep):
   <body>
     <nav class="site-nav">
       <div class="nav-inner">
-        <a href="../index.html" class="nav-logo">
+        <a href="/" class="nav-logo">
           <img src="../images/website-logo.png" alt="The Bird Dog Podcast" />
         </a>
         <ul class="nav-links">
-          <li><a href="../index.html">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="../episodes.html" class="active">Episodes</a></li>
           <li><a href="../partners.html">Partners</a></li>
           <li><a href="../about.html">About</a></li>
