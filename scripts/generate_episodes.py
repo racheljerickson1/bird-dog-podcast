@@ -44,14 +44,16 @@ BOILERPLATE_CUTOFFS = [
 
 SKIP_RESOURCE_HOSTS = (
     'buzzsprout.com', 'apple.com', 'spotify.com', 'thebirddogpodcast.com',
-    'gunshyfix.com', 'kuranda.com', 'nuvet.com', 'utahbirddogtraining.com',
+    'gunshyfix.com', 'kuranda.com',     'nuvet.com', 'utahbirddogtraining.com',
     'fieldbredgoldenretrievers.com', 'utahpointinglabs.com',
+    'paradigmsportingdog.com',
 )
 
 STANDARD_RESOURCES = [
     ('https://www.gunshyfix.com', 'The Gunshy Fix', 'Sound conditioning program for gunshy dogs.'),
     ('https://kuranda.com/?partner=26722&amp;utm_medium=affiliate&amp;utm_campaign=KurandaPartnerProgram&amp;utm_source=partners.kuranda.com', 'Kuranda Dog Beds', 'Elevated, chew-proof dog beds built for working dogs.'),
     ('https://www.nuvet.com/56496', 'NuVet', 'Cold-pressed supplements for optimal dog health.'),
+    ('https://www.paradigmsportingdog.com/collections/paradigm-first-aid-kits?dt_id=3443993', 'Paradigm Sporting Dog', 'Veterinarian-designed first aid kits for bird dogs.'),
     ('https://www.utahbirddogtraining.com', 'Utah Bird Dog Training', "Tyce's professional training services."),
     ('https://www.fieldbredgoldenretrievers.com', 'Field Bred Golden Retrievers', "Tyce and Rachel's golden retriever breeding program."),
     ('https://www.utahpointinglabs.com', 'Utah Pointing Labs', "Tyce's pointing lab breeding program."),
