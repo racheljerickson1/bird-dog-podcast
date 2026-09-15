@@ -563,23 +563,42 @@ def main():
         itunes_img_el = item.find('itunes:image', NS)
         rss_img_url = itunes_img_el.get('href') if itunes_img_el is not None else None
         local_img_path = None
-        if rss_img_url:
-            for ext in ('jpg', 'jpeg', 'png'):
-                candidate = os.path.join(IMAGES_DIR, f'episode-{ep_num}.{ext}')
-                if os.path.exists(candidate):
-                    local_img_path = f'../images/episode-{ep_num}.{ext}'
-                    break
-            if not local_img_path:
-                try:
-                    img_bytes = fetch(rss_img_url)
-                    ext = 'jpg' if rss_img_url.lower().endswith('.jpg') or b'\xff\xd8' in img_bytes[:4] else 'png'
-                    save_path = os.path.join(IMAGES_DIR, f'episode-{ep_num}.{ext}')
-                    with open(save_path, 'wb') as f:
-                        f.write(img_bytes)
-                    local_img_path = f'../images/episode-{ep_num}.{ext}'
-                    print(f'    Image downloaded: episode-{ep_num}.{ext}')
-                except Exception as e:
-                    print(f'    Image download failed: {e}')
+        for ext in ('jpg', 'jpeg', 'png', 'webp'):
+            candidate = os.path.join(IMAGES_DIR, f'episode-{ep_num}.{ext}')
+            if os.path.exists(candidate):
+                local_img_path = f'../images/episode-{ep_num}.{ext}'
+                break
+        if rss_img_url and not local_img_path:
+            try:
+                img_bytes = fetch(rss_img_url)
+                ext = 'jpg' if rss_img_url.lower().endswith('.jpg') or b'\xff\xd8' in img_bytes[:4] else 'png'
+                save_path = os.path.join(IMAGES_DIR, f'episode-{ep_num}.{ext}')
+                with open(save_path, 'wb') as f:
+                    f.write(img_bytes)
+                local_img_path = f'../images/episode-{ep_num}.{ext}'
+                print(f'    Image downloaded: episode-{ep_num}.{ext}')
+            except Exception as e:
+                print(f'    Image download failed: {e}')
+
+        # If the page already exists but was generated without a photo, inject it
+        if local_img_path and os.path.exists(ep_file):
+            with open(ep_file) as f:
+                existing = f.read()
+            if f'episode-{ep_num}.' not in existing.split('<body', 1)[-1] or '<figure' not in existing:
+                figure = (
+                    f'<figure style="margin:0 0 2rem;">'
+                    f'<img src="{local_img_path}" alt="{title}" style="width:100%;border-radius:8px;display:block;" />'
+                    f'</figure>'
+                )
+                if '<figure' not in existing:
+                    existing = existing.replace(
+                        '<div class="episode-player">',
+                        figure + '\n\n      <div class="episode-player">',
+                        1,
+                    )
+                    with open(ep_file, 'w') as f:
+                        f.write(existing)
+                    print(f'    Added missing image to existing episode-{ep_num}.html')
 
         next_num = numbered[idx + 1][0] if idx + 1 < len(numbered) else None
 
