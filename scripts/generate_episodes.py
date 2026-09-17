@@ -46,12 +46,13 @@ SKIP_RESOURCE_HOSTS = (
     'buzzsprout.com', 'apple.com', 'spotify.com', 'thebirddogpodcast.com',
     'gunshyfix.com', 'kuranda.com',     'nuvet.com', 'utahbirddogtraining.com',
     'fieldbredgoldenretrievers.com', 'utahpointinglabs.com',
-    'paradigmsportingdog.com',
+    'paradigmsportingdog.com', 'gunner.pxf.io', 'gunner.com',
 )
 
 STANDARD_RESOURCES = [
     ('https://www.gunshyfix.com', 'The Gunshy Fix', 'Sound conditioning program for gunshy dogs.'),
     ('https://kuranda.com/?partner=26722&amp;utm_medium=affiliate&amp;utm_campaign=KurandaPartnerProgram&amp;utm_source=partners.kuranda.com', 'Kuranda Dog Beds', 'Elevated, chew-proof dog beds built for working dogs.'),
+    ('https://gunner.pxf.io/c/7724546/2007558/24794', 'Gunner', 'Crash-tested kennels, bumpers, and gear for working dogs.'),
     ('https://www.nuvet.com/56496', 'NuVet', 'Cold-pressed supplements for optimal dog health.'),
     ('https://www.paradigmsportingdog.com/collections/paradigm-first-aid-kits?dt_id=3443993', 'Paradigm Sporting Dog', 'Veterinarian-designed first aid kits for bird dogs.'),
     ('https://www.utahbirddogtraining.com', 'Utah Bird Dog Training', "Tyce's professional training services."),
