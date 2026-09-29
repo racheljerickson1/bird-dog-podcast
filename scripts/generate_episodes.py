@@ -588,25 +588,51 @@ def main():
         if not local_img_path:
             local_img_path = '../images/website-logo.png'
 
-        # If the page already exists but was generated without a photo, inject it
-        if local_img_path and os.path.exists(ep_file):
+        # If the page already exists but still uses the logo, add/swap in unique artwork
+        if local_img_path and 'website-logo' not in local_img_path and os.path.exists(ep_file):
             with open(ep_file) as f:
                 existing = f.read()
-            if f'episode-{ep_num}.' not in existing.split('<body', 1)[-1] or '<figure' not in existing:
+            body = existing.split('<body', 1)[-1] if '<body' in existing else existing
+            figure_missing = '<figure' not in existing
+            still_on_logo = (
+                f'episode-{ep_num}.' not in body
+                and 'website-logo.png' in existing
+            )
+            if figure_missing or still_on_logo:
                 figure = (
                     f'<figure style="margin:0 0 2rem;">'
                     f'<img src="{local_img_path}" alt="{title}" style="width:100%;border-radius:8px;display:block;" />'
                     f'</figure>'
                 )
-                if '<figure' not in existing:
+                if figure_missing:
                     existing = existing.replace(
                         '<div class="episode-player">',
                         figure + '\n\n      <div class="episode-player">',
                         1,
                     )
-                    with open(ep_file, 'w') as f:
-                        f.write(existing)
-                    print(f'    Added missing image to existing episode-{ep_num}.html')
+                else:
+                    existing = re.sub(
+                        r'(<figure[^>]*>\s*<img src=")[^"]+(")',
+                        rf'\1{local_img_path}\2',
+                        existing,
+                        count=1,
+                    )
+                abs_img = f'https://www.thebirddogpodcast.com/images/{os.path.basename(local_img_path)}'
+                existing = re.sub(
+                    r'(<meta property="og:image" content=")https://www\.thebirddogpodcast\.com/images/website-logo\.png(")',
+                    rf'\1{abs_img}\2',
+                    existing,
+                    count=1,
+                )
+                existing = re.sub(
+                    r'(<meta name="twitter:image" content=")https://www\.thebirddogpodcast\.com/images/website-logo\.png(")',
+                    rf'\1{abs_img}\2',
+                    existing,
+                    count=1,
+                )
+                with open(ep_file, 'w') as f:
+                    f.write(existing)
+                print(f'    Updated artwork on existing episode-{ep_num}.html')
 
         next_num = numbered[idx + 1][0] if idx + 1 < len(numbered) else None
 
