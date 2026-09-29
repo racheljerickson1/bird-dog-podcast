@@ -455,11 +455,14 @@ def update_episodes_list(all_episodes):
     for ep in sorted(all_episodes, key=lambda e: -e['number']):
         date_short = ep.get('date_short', ep.get('date_display', ''))
         n = ep['number']
-        # Thumbnail: prefer jpg, fall back to png, then logo
-        thumb_src = f'images/episode-{n}.jpg'
+        thumb_src = 'images/website-logo.png'
+        for ext in ('jpg', 'jpeg', 'png', 'webp'):
+            if os.path.exists(os.path.join(IMAGES_DIR, f'episode-{n}.{ext}')):
+                thumb_src = f'images/episode-{n}.{ext}'
+                break
         items.append(f'''        <li>
           <a href="episodes/episode-{n}.html">
-            <img class="episode-thumb" src="{thumb_src}" alt="Episode {n}" onerror="this.onerror=null;this.src=this.src.endsWith('.jpg')?'images/episode-{n}.png':'images/logo.png';" />
+            <img class="episode-thumb" src="{thumb_src}" alt="Episode {n}" onerror="if(this.src.endsWith('.jpg')){{this.src='images/episode-{n}.png';}}else if(!this.src.includes('website-logo')){{this.src='images/website-logo.png';}}else{{this.onerror=null;}}" />
             <span class="episode-num">{n}</span>
             <span class="episode-info">
               <h3>{ep['title']}</h3>
@@ -580,6 +583,10 @@ def main():
                 print(f'    Image downloaded: episode-{ep_num}.{ext}')
             except Exception as e:
                 print(f'    Image download failed: {e}')
+
+        # No Buzzsprout artwork — use the podcast logo so the page never ships without a photo
+        if not local_img_path:
+            local_img_path = '../images/website-logo.png'
 
         # If the page already exists but was generated without a photo, inject it
         if local_img_path and os.path.exists(ep_file):

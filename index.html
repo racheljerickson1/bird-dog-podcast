@@ -334,7 +334,7 @@
                 src="${localImgBase ? localImgBase + '.jpg' : 'images/website-logo.png'}"
                 alt="${title.replace(/"/g, '&quot;')}"
                 style="object-position:${imgPosition}"
-                onerror="this.onerror=null; if(this.src.endsWith('.jpg')&&'${localImgBase}'){this.src='${localImgBase}.png';}else{this.src='images/website-logo.png';}"
+                onerror="if(this.src.endsWith('.jpg')&&'${localImgBase}'){this.src='${localImgBase}.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}"
               />
             </div>
             <div class="card-body">
