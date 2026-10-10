@@ -2,23 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-  <link rel="icon" href="images/logo.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/brand/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="All 61 episodes of The Bird Dog Podcast with Tyce Erickson — bird dog training, hunting, breeding, and more." />
-    <title>Episodes — The Bird Dog Podcast</title>
+    <meta name="description" content="Every episode of Bird Dogs &amp; Big Game, including the full archive from The Bird Dog Podcast." />
+    <title>Episodes | Bird Dogs &amp; Big Game</title>
     <link rel="canonical" href="https://www.thebirddogpodcast.com/episodes.html" />
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="The Bird Dog Podcast" />
-    <meta property="og:title" content="All Episodes — The Bird Dog Podcast" />
-    <meta property="og:description" content="Browse all 61 episodes of The Bird Dog Podcast with Tyce Erickson. Topics include bird dog training, upland hunting, waterfowl, and more." />
-    <meta property="og:image" content="https://thebirddogpodcast.com/images/website-logo.png" />
+    <meta property="og:site_name" content="Bird Dogs &amp; Big Game" />
+    <meta property="og:title" content="All Episodes | Bird Dogs &amp; Big Game" />
+    <meta property="og:description" content="Every episode of Bird Dogs &amp; Big Game, including the full archive from The Bird Dog Podcast." />
+    <meta property="og:image" content="https://www.thebirddogpodcast.com/images/brand/bdbg_og_1200x630.jpg" />
     <meta property="og:url" content="https://thebirddogpodcast.com/episodes.html" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="All Episodes — The Bird Dog Podcast" />
-    <meta name="twitter:description" content="Browse all 61 episodes of The Bird Dog Podcast with Tyce Erickson. Topics include bird dog training, upland hunting, waterfowl, and more." />
-    <meta name="twitter:image" content="https://thebirddogpodcast.com/images/website-logo.png" />
+    <meta name="twitter:title" content="All Episodes | Bird Dogs &amp; Big Game" />
+    <meta name="twitter:description" content="Every episode of Bird Dogs &amp; Big Game, including the full archive from The Bird Dog Podcast." />
+    <meta name="twitter:image" content="https://www.thebirddogpodcast.com/images/brand/bdbg_og_1200x630.jpg" />
     <link rel="stylesheet" href="styles.css" />
     <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTGSD7MPC"></script>
@@ -30,37 +32,50 @@
   </script>
 </head>
   <body>
+        <div class="announce-bar" id="announce-bar" hidden>
+      <p>Now airing Tuesdays on the Outdoor Radio Network. <a href="https://onair.outdoorradionetwork.com/orn-show-how-to-listen/" target="_blank" rel="noopener">Listen live</a> -&gt;</p>
+      <button type="button" class="announce-bar-close" id="announce-bar-close" aria-label="Dismiss announcement">&times;</button>
+    </div>
     <nav class="site-nav">
       <div class="nav-inner">
         <a href="/" class="nav-logo">
-          <img src="images/website-logo.png" alt="The Bird Dog Podcast" />
+          <img src="/images/brand/bdbg_mark_green_512.png" alt="" width="44" height="44" />
+          <span>Bird Dogs &amp; Big Game</span>
         </a>
-        <ul class="nav-links">
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
           <li><a href="/">Home</a></li>
-          <li><a href="episodes.html" class="active">Episodes</a></li>
-          <li><a href="partners.html">Partners</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/episodes.html" class="active">Episodes</a></li>
+          <li><a href="/partners.html">Partners</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
       </div>
     </nav>
 
-    <main class="page-main">
-      <header class="page-header">
+        <div class="episodes-banner">
+      <img src="images/big-game/own/glassing-backcountry-tundra.jpg" alt="Hunter glassing red fall tundra in the backcountry" width="1900" height="1425" />
+      <div class="episodes-banner-overlay" aria-hidden="true"></div>
+      <div class="episodes-banner-inner">
         <p class="section-label">Archive</p>
         <h1>All Episodes</h1>
+      </div>
+    </div>
+    <main class="page-main">
+      <header class="page-header">
         <p>
-          61 episodes on bird dog training, hunting, breeding, and upland culture
-          — hosted by <a href="about.html">Tyce Erickson</a> of
-          <a href="https://www.utahbirddogtraining.com" target="_blank" rel="noopener">Utah Bird Dog Training</a>.
-          Click any episode for show notes and listen links.
+          Every episode of Bird Dogs &amp; Big Game, including the full archive from The Bird Dog Podcast. Gun dog training, upland and waterfowl hunting, and western big game with host Tyce Erickson of Utah Bird Dog Training. Click any episode for show notes and listen links.
         </p>
       </header>
 
-                                                                                                                                                                                                                        <ul class="episode-list">
+                                                            <ul class="episode-list">
         <li>
           <a href="episodes/episode-63.html">
-            <img class="episode-thumb" src="images/episode-63.jpg" alt="Episode 63" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-63.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-63.jpg" alt="Episode 63" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-63.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">63</span>
             <span class="episode-info">
               <h3>Why Good Dogs Fall Apart on Opening Morning</h3>
@@ -71,7 +86,7 @@
         </li>
         <li>
           <a href="episodes/episode-62.html">
-            <img class="episode-thumb" src="images/episode-62.jpg" alt="Episode 62" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-62.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-62.jpg" alt="Episode 62" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-62.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">62</span>
             <span class="episode-info">
               <h3>eBird, Merlin & Tracking Waterfowl Migration with Orin Robinson & Mitch Barry (Cornell Lab of Ornithology)</h3>
@@ -82,7 +97,7 @@
         </li>
         <li>
           <a href="episodes/episode-61.html">
-            <img class="episode-thumb" src="images/episode-61.jpg" alt="Episode 61" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-61.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-61.jpg" alt="Episode 61" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-61.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">61</span>
             <span class="episode-info">
               <h3>Vet Q&A: Cold Tail, Dewclaws, Spay/Neuter Myths & Dog Nutrition with Dr. RuthAnn Lobos (Purina)</h3>
@@ -93,7 +108,7 @@
         </li>
         <li>
           <a href="episodes/episode-60.html">
-            <img class="episode-thumb" src="images/episode-60.jpg" alt="Episode 60" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-60.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-60.jpg" alt="Episode 60" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-60.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">60</span>
             <span class="episode-info">
               <h3>If an accident happens in the field are you ready to take care of your dog?</h3>
@@ -104,7 +119,7 @@
         </li>
         <li>
           <a href="episodes/episode-59.html">
-            <img class="episode-thumb" src="images/episode-59.jpg" alt="Episode 59" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-59.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-59.jpg" alt="Episode 59" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-59.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">59</span>
             <span class="episode-info">
               <h3>Never Out Killed: What is NOK?</h3>
@@ -115,7 +130,7 @@
         </li>
         <li>
           <a href="episodes/episode-58.html">
-            <img class="episode-thumb" src="images/episode-58.jpg" alt="Episode 58" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-58.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-58.jpg" alt="Episode 58" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-58.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">58</span>
             <span class="episode-info">
               <h3>Do you know as much as you think you do about Ruffed Grouse?</h3>
@@ -126,7 +141,7 @@
         </li>
         <li>
           <a href="episodes/episode-57.html">
-            <img class="episode-thumb" src="images/episode-57.jpg" alt="Episode 57" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-57.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-57.jpg" alt="Episode 57" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-57.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">57</span>
             <span class="episode-info">
               <h3>Tim Brown- The Bearded Uplander with Beyond The Point Show</h3>
@@ -137,7 +152,7 @@
         </li>
         <li>
           <a href="episodes/episode-56.html">
-            <img class="episode-thumb" src="images/episode-56.jpg" alt="Episode 56" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-56.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-56.jpg" alt="Episode 56" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-56.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">56</span>
             <span class="episode-info">
               <h3>Is your boat ready for the hunts? Backwater performance & Glade Harris</h3>
@@ -148,7 +163,7 @@
         </li>
         <li>
           <a href="episodes/episode-55.html">
-            <img class="episode-thumb" src="images/episode-55.jpg" alt="Episode 55" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-55.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-55.jpg" alt="Episode 55" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-55.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">55</span>
             <span class="episode-info">
               <h3>Troy Benson & The American Pointing Lab Association. Is the pointing lab the most versatile dog on the planet?</h3>
@@ -159,7 +174,7 @@
         </li>
         <li>
           <a href="episodes/episode-54.html">
-            <img class="episode-thumb" src="images/episode-54.jpg" alt="Episode 54" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-54.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-54.jpg" alt="Episode 54" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-54.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">54</span>
             <span class="episode-info">
               <h3>Dove Hunting and getting your dog ready for the hunt!</h3>
@@ -170,7 +185,7 @@
         </li>
         <li>
           <a href="episodes/episode-53.html">
-            <img class="episode-thumb" src="images/episode-53.jpg" alt="Episode 53" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-53.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-53.jpg" alt="Episode 53" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-53.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">53</span>
             <span class="episode-info">
               <h3>Does your dog destroy your yard or house when you’re not there?</h3>
@@ -181,7 +196,7 @@
         </li>
         <li>
           <a href="episodes/episode-52.html">
-            <img class="episode-thumb" src="images/episode-52.jpg" alt="Episode 52" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-52.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-52.jpg" alt="Episode 52" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-52.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">52</span>
             <span class="episode-info">
               <h3>Is it a good idea to get two dogs at the same time?</h3>
@@ -192,7 +207,7 @@
         </li>
         <li>
           <a href="episodes/episode-51.html">
-            <img class="episode-thumb" src="images/episode-51.png" alt="Episode 51" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-51.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-51.png" alt="Episode 51" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-51.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">51</span>
             <span class="episode-info">
               <h3>Does your dog jump on you? Avoidance training & starting them out right the right way.</h3>
@@ -203,7 +218,7 @@
         </li>
         <li>
           <a href="episodes/episode-50.html">
-            <img class="episode-thumb" src="images/episode-50.png" alt="Episode 50" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-50.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-50.png" alt="Episode 50" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-50.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">50</span>
             <span class="episode-info">
               <h3>Ben Proctor & BPRO Kennels</h3>
@@ -214,7 +229,7 @@
         </li>
         <li>
           <a href="episodes/episode-49.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 49" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-49.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 49" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-49.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">49</span>
             <span class="episode-info">
               <h3>Hunting the "King" with Mike Birch.</h3>
@@ -225,7 +240,7 @@
         </li>
         <li>
           <a href="episodes/episode-48.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 48" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-48.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 48" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-48.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">48</span>
             <span class="episode-info">
               <h3>What is the Greyhound Protection Act & how it can affect you! Get involved today!</h3>
@@ -236,7 +251,7 @@
         </li>
         <li>
           <a href="episodes/episode-47.html">
-            <img class="episode-thumb" src="images/episode-47.jpg" alt="Episode 47" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-47.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-47.jpg" alt="Episode 47" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-47.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">47</span>
             <span class="episode-info">
               <h3>Introducing a dog to water & tips to get that dog swimming!</h3>
@@ -247,7 +262,7 @@
         </li>
         <li>
           <a href="episodes/episode-46.html">
-            <img class="episode-thumb" src="images/episode-46.png" alt="Episode 46" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-46.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-46.png" alt="Episode 46" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-46.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">46</span>
             <span class="episode-info">
               <h3>Force Fetch Training. What is it? Why do it? How to use it.</h3>
@@ -258,7 +273,7 @@
         </li>
         <li>
           <a href="episodes/episode-45.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 45" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-45.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-45.jpg" alt="Episode 45" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-45.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">45</span>
             <span class="episode-info">
               <h3>Seasons End, Dog Training Timelines & Western Hunting Expo</h3>
@@ -269,7 +284,7 @@
         </li>
         <li>
           <a href="episodes/episode-44.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 44" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-44.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 44" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-44.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">44</span>
             <span class="episode-info">
               <h3>Canada Goose Hunting Tips and Words of Wisdom from Mike Cornu</h3>
@@ -280,7 +295,7 @@
         </li>
         <li>
           <a href="episodes/episode-43.html">
-            <img class="episode-thumb" src="images/episode-43.jpg" alt="Episode 43" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-43.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-43.jpg" alt="Episode 43" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-43.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">43</span>
             <span class="episode-info">
               <h3>What I have learned from hunting Late Season Blue Grouse!</h3>
@@ -291,7 +306,7 @@
         </li>
         <li>
           <a href="episodes/episode-42.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 42" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-42.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 42" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-42.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">42</span>
             <span class="episode-info">
               <h3>Decoying Tips for Waterfowl Hunting</h3>
@@ -302,7 +317,7 @@
         </li>
         <li>
           <a href="episodes/episode-41.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 41" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-41.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 41" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-41.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">41</span>
             <span class="episode-info">
               <h3>Whining and Barking Waterfowl Dogs & How Help Them Be Quiet.</h3>
@@ -313,7 +328,7 @@
         </li>
         <li>
           <a href="episodes/episode-40.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 40" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-40.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 40" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-40.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">40</span>
             <span class="episode-info">
               <h3>Getting Your Dog Rock Solid Steady. The key to safety and killing more birds.</h3>
@@ -324,7 +339,7 @@
         </li>
         <li>
           <a href="episodes/episode-39.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 39" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-39.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 39" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-39.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">39</span>
             <span class="episode-info">
               <h3>Pheasant Hunting & 2025 So Far Season Overview</h3>
@@ -335,7 +350,7 @@
         </li>
         <li>
           <a href="episodes/episode-38.html">
-            <img class="episode-thumb" src="images/episode-38.jpg" alt="Episode 38" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-38.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-38.jpg" alt="Episode 38" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-38.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">38</span>
             <span class="episode-info">
               <h3>Waterfowl Hunting in New Zealand!</h3>
@@ -346,7 +361,7 @@
         </li>
         <li>
           <a href="episodes/episode-37.html">
-            <img class="episode-thumb" src="images/episode-37.jpg" alt="Episode 37" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-37.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-37.jpg" alt="Episode 37" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-37.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">37</span>
             <span class="episode-info">
               <h3>E- Collars what we use and recommend. What we like and don't like.</h3>
@@ -357,7 +372,7 @@
         </li>
         <li>
           <a href="episodes/episode-36.html">
-            <img class="episode-thumb" src="images/episode-36.jpg" alt="Episode 36" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-36.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-36.jpg" alt="Episode 36" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-36.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">36</span>
             <span class="episode-info">
               <h3>Dog Training Questions Answered For a Listener. Retrieving, Chewing and Obedience Questions Addressed.</h3>
@@ -368,7 +383,7 @@
         </li>
         <li>
           <a href="episodes/episode-35.html">
-            <img class="episode-thumb" src="images/episode-35.png" alt="Episode 35" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-35.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-35.png" alt="Episode 35" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-35.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">35</span>
             <span class="episode-info">
               <h3>(EP:35) Marsh Foot & Keeping An Eye On Your Dog In & Around the Marsh with Jeff Christensen</h3>
@@ -379,7 +394,7 @@
         </li>
         <li>
           <a href="episodes/episode-34.html">
-            <img class="episode-thumb" src="images/episode-34.png" alt="Episode 34" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-34.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-34.png" alt="Episode 34" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-34.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">34</span>
             <span class="episode-info">
               <h3>(EP:34) JL VanZyverden- Host of "Sell Anything" Podcast we sit down and talk dogs. It's a good one!</h3>
@@ -390,7 +405,7 @@
         </li>
         <li>
           <a href="episodes/episode-33.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 33" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-33.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 33" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-33.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">33</span>
             <span class="episode-info">
               <h3>(EP:33) Breeding Dogs and Raising Puppies- Things We Learned Along The Way!</h3>
@@ -401,7 +416,7 @@
         </li>
         <li>
           <a href="episodes/episode-32.html">
-            <img class="episode-thumb" src="images/episode-32.jpg" alt="Episode 32" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-32.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-32.jpg" alt="Episode 32" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-32.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">32</span>
             <span class="episode-info">
               <h3>(EP:32) Hunter Rasmussen's Hunting Accident Story And Lessons Learned</h3>
@@ -412,7 +427,7 @@
         </li>
         <li>
           <a href="episodes/episode-31.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 31" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-31.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 31" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-31.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">31</span>
             <span class="episode-info">
               <h3>(EP:31) Dog Vests & A Good Goose Hunt!</h3>
@@ -423,7 +438,7 @@
         </li>
         <li>
           <a href="episodes/episode-30.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 30" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-30.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 30" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-30.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">30</span>
             <span class="episode-info">
               <h3>(EP:30) Bird Dog Etiquette & Hunting With Friends Dogs That Are Not Trained To The Same Level.</h3>
@@ -434,7 +449,7 @@
         </li>
         <li>
           <a href="episodes/episode-29.html">
-            <img class="episode-thumb" src="images/episode-29.jpg" alt="Episode 29" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-29.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-29.jpg" alt="Episode 29" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-29.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">29</span>
             <span class="episode-info">
               <h3>(EP:29) Field Hunting Mallards -Tips, Tricks and Bird Dogs.</h3>
@@ -445,7 +460,7 @@
         </li>
         <li>
           <a href="episodes/episode-28.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 28" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-28.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 28" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-28.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">28</span>
             <span class="episode-info">
               <h3>(EP:28) Water Work & Tips to Get Your Dog Swimming!</h3>
@@ -456,7 +471,7 @@
         </li>
         <li>
           <a href="episodes/episode-27.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 27" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-27.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 27" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-27.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">27</span>
             <span class="episode-info">
               <h3>(EP:27) Young Dogs, Expectations and Openings Days!</h3>
@@ -467,7 +482,7 @@
         </li>
         <li>
           <a href="episodes/episode-26.html">
-            <img class="episode-thumb" src="images/episode-26.jpg" alt="Episode 26" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-26.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-26.jpg" alt="Episode 26" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-26.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">26</span>
             <span class="episode-info">
               <h3>(EP:26) Justin Chapman: The love of Chukar and how to get into hunting this amazing bird!</h3>
@@ -478,7 +493,7 @@
         </li>
         <li>
           <a href="episodes/episode-25.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 25" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-25.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 25" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-25.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">25</span>
             <span class="episode-info">
               <h3>(EP:25) What kind of personality category does your dog fall into?</h3>
@@ -489,7 +504,7 @@
         </li>
         <li>
           <a href="episodes/episode-24.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 24" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-24.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 24" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-24.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">24</span>
             <span class="episode-info">
               <h3>(Ep:24) Pheasant Fest - Sioux Falls, South Dakota -state of pheasants in SD & what we saw.</h3>
@@ -500,7 +515,7 @@
         </li>
         <li>
           <a href="episodes/episode-23.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 23" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-23.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 23" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-23.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">23</span>
             <span class="episode-info">
               <h3>(EP:23) Master AKC Hunt Test - Best of the best. Could your dog be a Master?</h3>
@@ -511,7 +526,7 @@
         </li>
         <li>
           <a href="episodes/episode-22.html">
-            <img class="episode-thumb" src="images/episode-22.jpeg" alt="Episode 22" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-22.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-22.jpeg" alt="Episode 22" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-22.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">22</span>
             <span class="episode-info">
               <h3>(EP:22) Does your dog have what it takes to be a Senior Hunter?</h3>
@@ -522,7 +537,7 @@
         </li>
         <li>
           <a href="episodes/episode-21.html">
-            <img class="episode-thumb" src="images/episode-21.jpg" alt="Episode 21" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-21.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-21.jpg" alt="Episode 21" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-21.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">21</span>
             <span class="episode-info">
               <h3>(EP:21) Want to run a Junior Hunt Test with your dog? Listen to learn how!</h3>
@@ -533,7 +548,7 @@
         </li>
         <li>
           <a href="episodes/episode-20.html">
-            <img class="episode-thumb" src="images/episode-20.jpg" alt="Episode 20" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-20.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-20.jpg" alt="Episode 20" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-20.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">20</span>
             <span class="episode-info">
               <h3>(EP: 020) Awesome Waterfowl Recipe, Best Waders on the market & How to Introduce Your Dog to Retrieving Geese.</h3>
@@ -544,7 +559,7 @@
         </li>
         <li>
           <a href="episodes/episode-19.html">
-            <img class="episode-thumb" src="images/episode-19.jpg" alt="Episode 19" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-19.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-19.jpg" alt="Episode 19" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-19.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">19</span>
             <span class="episode-info">
               <h3>(EP:019) Cold Weather & Hunting Dogs</h3>
@@ -555,7 +570,7 @@
         </li>
         <li>
           <a href="episodes/episode-18.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 18" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-18.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 18" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-18.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">18</span>
             <span class="episode-info">
               <h3>(EP: 018) Products to have on hand to help keep your hunting dog safe and healthy.</h3>
@@ -566,7 +581,7 @@
         </li>
         <li>
           <a href="episodes/episode-17.html">
-            <img class="episode-thumb" src="images/episode-17.jpg" alt="Episode 17" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-17.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-17.jpg" alt="Episode 17" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-17.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">17</span>
             <span class="episode-info">
               <h3>The New Gunner Bumper Review</h3>
@@ -577,7 +592,7 @@
         </li>
         <li>
           <a href="episodes/episode-16.html">
-            <img class="episode-thumb" src="images/episode-16.jpg" alt="Episode 16" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-16.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-16.jpg" alt="Episode 16" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-16.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">16</span>
             <span class="episode-info">
               <h3>Youth waterfowl hunt 2023 & tips on taking a dog out on it's first hunt!</h3>
@@ -588,7 +603,7 @@
         </li>
         <li>
           <a href="episodes/episode-15.html">
-            <img class="episode-thumb" src="images/website-logo.png" alt="Episode 15" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-15.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/brand/bdbg_badge_green_512.png" alt="Episode 15" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-15.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">15</span>
             <span class="episode-info">
               <h3>Opening Day Grouse Hunt (Part 2)</h3>
@@ -599,7 +614,7 @@
         </li>
         <li>
           <a href="episodes/episode-14.html">
-            <img class="episode-thumb" src="images/episode-14.jpg" alt="Episode 14" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-14.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-14.jpg" alt="Episode 14" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-14.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">14</span>
             <span class="episode-info">
               <h3>Opening Day Grouse Hunt 2023 Part 1</h3>
@@ -610,7 +625,7 @@
         </li>
         <li>
           <a href="episodes/episode-13.html">
-            <img class="episode-thumb" src="images/episode-13.jpg" alt="Episode 13" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-13.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-13.jpg" alt="Episode 13" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-13.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">13</span>
             <span class="episode-info">
               <h3>Handling & Blind Retrieve Training - The icing on the cake of a finished hunting dog.</h3>
@@ -621,7 +636,7 @@
         </li>
         <li>
           <a href="episodes/episode-12.html">
-            <img class="episode-thumb" src="images/episode-12.jpg" alt="Episode 12" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-12.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-12.jpg" alt="Episode 12" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-12.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">12</span>
             <span class="episode-info">
               <h3>Episode 012 and Part 3 - "Sharpie" the red setter and current training update!</h3>
@@ -631,8 +646,19 @@
           </a>
         </li>
         <li>
+          <a href="episodes/episode-11.html">
+            <img class="episode-thumb" src="images/episode-11.jpg" alt="Episode 11" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-11.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
+            <span class="episode-num">11</span>
+            <span class="episode-info">
+              <h3>Part Two! On the way home....Did I end up picking a dog and what one?</h3>
+              <span class="date">Aug 03, 2023</span>
+            </span>
+            <span class="episode-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
           <a href="episodes/episode-10.html">
-            <img class="episode-thumb" src="images/episode-10.jpg" alt="Episode 10" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-10.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-10.jpg" alt="Episode 10" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-10.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">10</span>
             <span class="episode-info">
               <h3>Picking a new Red Setter and how I did it. Part One!</h3>
@@ -643,7 +669,7 @@
         </li>
         <li>
           <a href="episodes/episode-9.html">
-            <img class="episode-thumb" src="images/episode-9.jpg" alt="Episode 9" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-9.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-9.jpg" alt="Episode 9" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-9.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">9</span>
             <span class="episode-info">
               <h3>Joseph Von Benedikt - The Man the Myth the Legend</h3>
@@ -654,7 +680,7 @@
         </li>
         <li>
           <a href="episodes/episode-8.html">
-            <img class="episode-thumb" src="images/episode-8.jpg" alt="Episode 8" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-8.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-8.jpg" alt="Episode 8" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-8.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">8</span>
             <span class="episode-info">
               <h3>Podcast with dog trainer Parker Fillmore</h3>
@@ -665,7 +691,7 @@
         </li>
         <li>
           <a href="episodes/episode-7.html">
-            <img class="episode-thumb" src="images/episode-7.jpg" alt="Episode 7" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-7.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-7.jpg" alt="Episode 7" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-7.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">7</span>
             <span class="episode-info">
               <h3>What kind of bird dog to buy?</h3>
@@ -676,7 +702,7 @@
         </li>
         <li>
           <a href="episodes/episode-6.html">
-            <img class="episode-thumb" src="images/episode-6.jpg" alt="Episode 6" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-6.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-6.jpg" alt="Episode 6" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-6.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">6</span>
             <span class="episode-info">
               <h3>The age old question of "How to choose a puppy?"</h3>
@@ -686,8 +712,19 @@
           </a>
         </li>
         <li>
+          <a href="episodes/episode-5.html">
+            <img class="episode-thumb" src="images/episode-5.png" alt="Episode 5" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-5.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
+            <span class="episode-num">5</span>
+            <span class="episode-info">
+              <h3>Interview with Mike Birch and his journey of hunting and handling bird dogs.</h3>
+              <span class="date">May 23, 2023</span>
+            </span>
+            <span class="episode-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
           <a href="episodes/episode-4.html">
-            <img class="episode-thumb" src="images/episode-4.jpg" alt="Episode 4" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-4.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-4.jpg" alt="Episode 4" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-4.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">4</span>
             <span class="episode-info">
               <h3>Pointing dogs and pigeons...the best match made in heaven for training?</h3>
@@ -698,7 +735,7 @@
         </li>
         <li>
           <a href="episodes/episode-3.html">
-            <img class="episode-thumb" src="images/episode-3.jpg" alt="Episode 3" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-3.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-3.jpg" alt="Episode 3" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-3.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">3</span>
             <span class="episode-info">
               <h3>The Power Of Physical Touch</h3>
@@ -709,7 +746,7 @@
         </li>
         <li>
           <a href="episodes/episode-2.html">
-            <img class="episode-thumb" src="images/episode-2.png" alt="Episode 2" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-2.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-2.png" alt="Episode 2" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-2.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">2</span>
             <span class="episode-info">
               <h3>Tyce and his son Crew to talk hunting memories 2022</h3>
@@ -720,7 +757,7 @@
         </li>
         <li>
           <a href="episodes/episode-1.html">
-            <img class="episode-thumb" src="images/episode-1.png" alt="Episode 1" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-1.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}" />
+            <img class="episode-thumb" src="images/episode-1.png" alt="Episode 1" onerror="if(this.src.endsWith('.jpg')){this.src='images/episode-1.png';}else if(!this.src.includes('bdbg_badge')){this.src='images/brand/bdbg_badge_green_512.png';}else{this.onerror=null;}" />
             <span class="episode-num">1</span>
             <span class="episode-info">
               <h3>Introducing The Bird Dog Podcast and Host Tyce Erickson</h3>
@@ -731,24 +768,30 @@
         </li>
       </ul>
     </main>
-
     <footer class="site-footer">
       <div class="footer-inner">
-        <p class="footer-brand">The Bird Dog Podcast</p>
+        <div class="footer-brand-block">
+          <a href="/" class="footer-logo">
+            <img src="/images/brand/bdbg_wordmark_stacked_cream.png" alt="Bird Dogs &amp; Big Game" width="140" height="86" />
+          </a>
+          <p class="footer-tagline">From the duck blind to the high country.</p>
+          <p class="footer-radio"><a href="https://onair.outdoorradionetwork.com/orn-show-how-to-listen/" target="_blank" rel="noopener">On air Tuesdays on the Outdoor Radio Network</a></p>
+        </div>
         <ul class="footer-links">
-          <li><a href="episodes.html">Episodes</a></li>
-          <li><a href="partners.html">Partners</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/episodes.html">Episodes</a></li>
+          <li><a href="/partners.html">Partners</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
-                <div class="footer-social-row">
-          <a href="https://www.instagram.com/thebirddogpodcast/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+        <div class="footer-social-row">
+          <a href="https://www.instagram.com/birddogsandbiggame/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            Instagram
+            @birddogsandbiggame
           </a>
         </div>
-        <p class="footer-copy">&copy; 2026 The Bird Dog Podcast with Tyce Erickson. All rights reserved.</p>
+        <p class="footer-copy">&copy; 2026 Bird Dogs &amp; Big Game with Tyce Erickson. Formerly The Bird Dog Podcast. All rights reserved.</p>
       </div>
     </footer>
+    <script src="/js/announce-bar.js"></script>
   </body>
 </html>

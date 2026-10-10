@@ -2,23 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-  <link rel="icon" href="../images/logo.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/brand/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Tyce and his son Crew sit down and talk hunting stories from 2022. They talk about a duck hunt to Idaho and some turkey hunting in Utah and a little bit" />
-    <title>Ep. 2: Tyce and his son Crew to talk hunting memories 2022 — The Bird Dog Podcast</title>
+    <title>Ep. 2: Tyce and his son Crew to talk hunting memories 2022 | Bird Dogs &amp; Big Game</title>
     <link rel="canonical" href="https://www.thebirddogpodcast.com/episodes/episode-2.html" />
     <!-- Open Graph -->
     <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="The Bird Dog Podcast" />
-    <meta property="og:title" content="Ep. 2: Tyce and his son Crew to talk hunting memories 2022 — The Bird Dog Podcast" />
+    <meta property="og:site_name" content="Bird Dogs &amp; Big Game" />
+    <meta property="og:title" content="Ep. 2: Tyce and his son Crew to talk hunting memories 2022 | Bird Dogs &amp; Big Game" />
     <meta property="og:description" content="Tyce and his son Crew sit down and talk hunting stories from 2022. They talk about a duck hunt to Idaho and some turkey hunting in Utah and a little bit" />
-    <meta property="og:image" content="https://thebirddogpodcast.com/images/website-logo.png" />
+    <meta property="og:image" content="https://www.thebirddogpodcast.com/images/brand/bdbg_og_1200x630.jpg" />
     <meta property="og:url" content="https://thebirddogpodcast.com/episodes/episode-2.html" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Ep. 2: Tyce and his son Crew to talk hunting memories 2022 — The Bird Dog Podcast" />
+    <meta name="twitter:title" content="Ep. 2: Tyce and his son Crew to talk hunting memories 2022 | Bird Dogs &amp; Big Game" />
     <meta name="twitter:description" content="Tyce and his son Crew sit down and talk hunting stories from 2022. They talk about a duck hunt to Idaho and some turkey hunting in Utah and a little bit" />
-    <meta name="twitter:image" content="https://thebirddogpodcast.com/images/website-logo.png" />
+    <meta name="twitter:image" content="https://www.thebirddogpodcast.com/images/brand/bdbg_og_1200x630.jpg" />
     <link rel="stylesheet" href="../styles.css" />
     <script type="application/ld+json">
     {
@@ -30,7 +32,7 @@
       "description": "Tyce and his son Crew sit down and talk hunting stories from 2022. They talk about a duck hunt to Idaho and some turkey hunting in Utah and a little bit",
       "partOfSeries": {
         "@type": "PodcastSeries",
-        "name": "The Bird Dog Podcast",
+        "name": "Bird Dogs & Big Game",
         "url": "https://www.thebirddogpodcast.com/"
       },
       "author": {
@@ -50,17 +52,27 @@
   </script>
 </head>
   <body>
+        <div class="announce-bar" id="announce-bar" hidden>
+      <p>Now airing Tuesdays on the Outdoor Radio Network. <a href="https://onair.outdoorradionetwork.com/orn-show-how-to-listen/" target="_blank" rel="noopener">Listen live</a> -&gt;</p>
+      <button type="button" class="announce-bar-close" id="announce-bar-close" aria-label="Dismiss announcement">&times;</button>
+    </div>
     <nav class="site-nav">
       <div class="nav-inner">
         <a href="/" class="nav-logo">
-          <img src="../images/website-logo.png" alt="The Bird Dog Podcast" />
+          <img src="/images/brand/bdbg_mark_green_512.png" alt="" width="44" height="44" />
+          <span>Bird Dogs &amp; Big Game</span>
         </a>
-        <ul class="nav-links">
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
           <li><a href="/">Home</a></li>
-          <li><a href="../episodes.html" class="active">Episodes</a></li>
-          <li><a href="../partners.html">Partners</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="/episodes.html" class="active">Episodes</a></li>
+          <li><a href="/partners.html">Partners</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -81,7 +93,7 @@
       <figure style="margin:0 0 2rem;">
         <img
           src="../images/episode-2.png"
-          alt="Episode 2 — The Bird Dog Podcast"
+          alt="Episode 2 | Bird Dogs &amp; Big Game"
           style="width:100%;border-radius:8px;display:block;"
         />
       </figure>
@@ -221,7 +233,7 @@
           <a href="https://www.utahbirddogtraining.com" target="_blank" rel="noopener">Utah Bird Dog Training</a>
           in Utah. For nearly two decades he has worked with pointing dogs, retrievers, and family
           hunting dogs — helping owners build dogs that are capable and enjoyable in the field.
-          The Bird Dog Podcast is an extension of that work: honest conversations on training,
+          Bird Dogs &amp; Big Game is an extension of that work: honest conversations on training,
           hunting, breeding, and everything that goes into a life spent working dogs.
         </p>
         <a href="../about.html" class="btn btn-outline" style="margin-top:1rem;display:inline-block;">More About Tyce</a>
@@ -232,24 +244,30 @@
         <a href="episode-3.html" class="btn btn-outline">Episode 3 →</a>
       </nav>
     </main>
-
     <footer class="site-footer">
       <div class="footer-inner">
-        <p class="footer-brand">The Bird Dog Podcast</p>
+        <div class="footer-brand-block">
+          <a href="/" class="footer-logo">
+            <img src="/images/brand/bdbg_wordmark_stacked_cream.png" alt="Bird Dogs &amp; Big Game" width="140" height="86" />
+          </a>
+          <p class="footer-tagline">From the duck blind to the high country.</p>
+          <p class="footer-radio"><a href="https://onair.outdoorradionetwork.com/orn-show-how-to-listen/" target="_blank" rel="noopener">On air Tuesdays on the Outdoor Radio Network</a></p>
+        </div>
         <ul class="footer-links">
-          <li><a href="../episodes.html">Episodes</a></li>
-          <li><a href="../partners.html">Partners</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="/episodes.html">Episodes</a></li>
+          <li><a href="/partners.html">Partners</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
-                <div class="footer-social-row">
-          <a href="https://www.instagram.com/thebirddogpodcast/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+        <div class="footer-social-row">
+          <a href="https://www.instagram.com/birddogsandbiggame/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            Instagram
+            @birddogsandbiggame
           </a>
         </div>
-        <p class="footer-copy">&copy; 2026 The Bird Dog Podcast with Tyce Erickson. All rights reserved.</p>
+        <p class="footer-copy">&copy; 2026 Bird Dogs &amp; Big Game with Tyce Erickson. Formerly The Bird Dog Podcast. All rights reserved.</p>
       </div>
     </footer>
+    <script src="/js/announce-bar.js"></script>
   </body>
 </html>

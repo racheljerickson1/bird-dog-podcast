@@ -2,23 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-  <link rel="icon" href="images/logo.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/brand/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="About Tyce Erickson, host of The Bird Dog Podcast." />
-    <title>About — The Bird Dog Podcast</title>
+    <meta name="description" content="About Tyce Erickson, host of Bird Dogs &amp; Big Game." />
+    <title>About | Bird Dogs &amp; Big Game</title>
     <link rel="canonical" href="https://www.thebirddogpodcast.com/about.html" />
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="The Bird Dog Podcast" />
-    <meta property="og:title" content="About Tyce Erickson — The Bird Dog Podcast" />
-    <meta property="og:description" content="Tyce Erickson is a professional bird dog trainer, hunter, and host of The Bird Dog Podcast. Owner of Utah Bird Dog Training in Utah." />
-    <meta property="og:image" content="https://thebirddogpodcast.com/images/Tyce Erickson Bird Dogs.jpg" />
+    <meta property="og:site_name" content="Bird Dogs &amp; Big Game" />
+    <meta property="og:title" content="About Tyce Erickson | Bird Dogs &amp; Big Game" />
+    <meta property="og:description" content="Tyce Erickson is a professional bird dog trainer, hunter, and host of Bird Dogs &amp; Big Game. Owner of Utah Bird Dog Training in Utah." />
+    <meta property="og:image" content="https://www.thebirddogpodcast.com/images/brand/bdbg_og_1200x630.jpg" />
     <meta property="og:url" content="https://thebirddogpodcast.com/about.html" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="About Tyce Erickson — The Bird Dog Podcast" />
-    <meta name="twitter:description" content="Tyce Erickson is a professional bird dog trainer, hunter, and host of The Bird Dog Podcast. Owner of Utah Bird Dog Training in Utah." />
-    <meta name="twitter:image" content="https://thebirddogpodcast.com/images/Tyce Erickson Bird Dogs.jpg" />
+    <meta name="twitter:title" content="About Tyce Erickson | Bird Dogs &amp; Big Game" />
+    <meta name="twitter:description" content="Tyce Erickson is a professional bird dog trainer, hunter, and host of Bird Dogs &amp; Big Game. Owner of Utah Bird Dog Training in Utah." />
+    <meta name="twitter:image" content="https://www.thebirddogpodcast.com/images/brand/bdbg_og_1200x630.jpg" />
     <link rel="stylesheet" href="styles.css" />
     <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTGSD7MPC"></script>
@@ -30,12 +32,22 @@
   </script>
 </head>
   <body>
+    <div class="announce-bar" id="announce-bar" hidden>
+      <p>Now airing Tuesdays on the Outdoor Radio Network. <a href="https://onair.outdoorradionetwork.com/orn-show-how-to-listen/" target="_blank" rel="noopener">Listen live</a> -&gt;</p>
+      <button type="button" class="announce-bar-close" id="announce-bar-close" aria-label="Dismiss announcement">&times;</button>
+    </div>
     <nav class="site-nav">
       <div class="nav-inner">
         <a href="/" class="nav-logo">
-          <img src="images/website-logo.png" alt="The Bird Dog Podcast" />
+          <img src="/images/brand/bdbg_mark_green_512.png" alt="" width="44" height="44" />
+          <span>Bird Dogs &amp; Big Game</span>
         </a>
-        <ul class="nav-links">
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
           <li><a href="/">Home</a></li>
           <li><a href="episodes.html">Episodes</a></li>
           <li><a href="partners.html">Partners</a></li>
@@ -45,10 +57,39 @@
       </div>
     </nav>
 
-    <!-- "Behind the Podcast" — full-bleed cream section -->
     <section class="about-behind">
-      <h1 class="about-behind-title">Behind the Bird Dog Podcast</h1>
-      <div class="about-behind-grid">
+      <img
+        class="about-wordmark"
+        src="images/brand/bdbg_wordmark_stacked_green.png"
+        alt="Bird Dogs &amp; Big Game"
+        width="400"
+        height="246"
+      />
+      <h1 class="about-behind-title">Behind Bird Dogs &amp; Big Game</h1>
+      <p style="max-width:46rem;margin:0 auto 0.5rem;text-align:center;">
+        Bird Dogs &amp; Big Game is hosted by Tyce Erickson, owner of Utah Bird Dog Training. Tyce has spent nearly two decades training pointing dogs and retrievers, and every fall he trades the training field for the duck marsh, the upland covers, and the elk woods. The show is the conversation he wants to have with the people who share that life: trainers, breeders, vets, guides, biologists, and hunters.
+      </p>
+      <p class="about-callout" style="max-width:46rem;margin:1.25rem auto;">
+        Formerly The Bird Dog Podcast. Same host, same dogs, a little more country. Every earlier episode is still right here in the archive.
+      </p>
+      <p style="max-width:46rem;margin:0 auto 1rem;text-align:center;color:var(--text-muted);">
+        New episodes post here and on Apple Podcasts, Spotify, and Amazon Music, and the show airs every Tuesday on the Outdoor Radio Network.
+      </p>
+      <div class="about-pair">
+        <img
+          src="images/tyce-pheasant.jpg"
+          alt="Tyce Erickson holding a pheasant with his golden retriever"
+          width="720"
+          height="1280"
+        />
+        <img
+          src="images/big-game/own/tyce-mule-deer-buck.jpg"
+          alt="Tyce Erickson with a mule deer buck"
+          width="1600"
+          height="1200"
+        />
+      </div>
+      <div class="about-behind-grid" style="margin-top:2.5rem;">
         <img
           src="images/tyce-hunting.jpg"
           alt="Tyce Erickson shooting with his golden retriever beside him"
@@ -58,11 +99,11 @@
           <p>
             <strong>For nearly two decades, Tyce Erickson has made his living training bird dogs.</strong>
             As the owner of <a href="https://www.utahbirddogtraining.com" target="_blank" rel="noopener">Utah Bird Dog Training</a>, he has worked with dogs of all breeds and
-            backgrounds — from young dogs just beginning their training to seasoned hunting
-            companions — and with the people who love to hunt behind them.
+            backgrounds, from young dogs just beginning their training to seasoned hunting
+            companions, and with the people who love to hunt behind them.
           </p>
           <p>
-            <strong>The Bird Dog Podcast grew naturally out of that life.</strong> It's a place for
+            <strong>Bird Dogs &amp; Big Game grew naturally out of that life.</strong> It's a place for
             honest conversations about dog training, hunting, breeding, genetics, gear, and the
             lessons learned from years in the field. Tyce sits down with trainers, breeders,
             hunters, industry experts, and everyday dog people to share experiences, ask questions,
@@ -72,23 +113,25 @@
       </div>
     </section>
 
-    <!-- "Meet Tyce" — green section with portrait photo -->
     <section class="about-meet">
       <div class="about-meet-inner">
         <h2 class="about-meet-title">Meet Tyce</h2>
         <div class="about-meet-grid">
           <div class="about-meet-photo-wrap">
             <img
-              src="images/tyce-pheasant.jpg"
-              alt="Tyce Erickson holding a pheasant with his golden retriever"
+              src="images/tyce-training.jpg"
+              alt="Tyce Erickson training a golden retriever in a field"
               class="about-meet-photo"
+              loading="lazy"
+              width="768"
+              height="432"
             />
           </div>
           <div class="about-meet-text">
             <p>
               Dogs and hunting have shaped a pretty big part of Tyce Erickson's life. As the
               owner of <a href="https://www.utahbirddogtraining.com" target="_blank" rel="noopener">Utah Bird Dog Training</a>, he spends his days working with pointing dogs,
-              retrievers, and family hunting dogs — and helping their owners develop dogs that
+              retrievers, and family hunting dogs, and helping their owners develop dogs that
               are enjoyable and capable in the field.
             </p>
             <p>
@@ -100,9 +143,9 @@
             </p>
             <p>
               Over the years, training dogs has put Tyce in contact with an incredible range of
-              people — trainers, breeders, hunters, veterinarians, industry professionals, and
+              people: trainers, breeders, hunters, veterinarians, industry professionals, and
               dog owners from all over the country. Those relationships, and the conversations
-              that came with them, eventually became the foundation for The Bird Dog Podcast. It
+              that came with them, eventually became the foundation for Bird Dogs &amp; Big Game. It
               gives Tyce a chance to ask questions, compare methods, hear different perspectives,
               and dig deeper into subjects he genuinely wants to know more about.
             </p>
@@ -116,7 +159,7 @@
             </p>
             <p>
               Tyce doesn't believe there's only one right way to train a dog, and he'll be the
-              first to tell you he's still learning. That curiosity is a big part of the podcast:
+              first to tell you he's still learning. That curiosity is a big part of the show:
               talk to good people, ask good questions, share what works, and keep learning.
             </p>
             <div class="btn-group" style="margin-top: 2rem">
@@ -131,11 +174,11 @@
       <div class="about-training-inner">
         <h2>Work With Tyce</h2>
         <p>
-          If the podcast has you thinking about your dog's training, Tyce offers professional
+          If the show has you thinking about your dog's training, Tyce offers professional
           bird dog training, started dogs, and consulting through
           <strong>Utah Bird Dog Training</strong>. Whether you have a young pup you want started
           right, a dog that needs polish, or you just want a conversation about what approach
-          makes sense for your situation — that's exactly the kind of work he does every day.
+          makes sense for your situation, that's exactly the kind of work he does every day.
         </p>
         <p>
           He works with pointing breeds, retrievers, and versatile dogs at all levels, and takes
@@ -145,23 +188,49 @@
       </div>
     </section>
 
+    <section class="section-block" style="max-width:72rem;margin:0 auto;padding:3rem 1.5rem 4rem;">
+      <p class="section-label">From the field</p>
+      <h2 style="margin-bottom:1.25rem;">From the field</h2>
+      <div class="field-grid">
+        <img src="images/dawn-hunt.jpg" alt="Bird dog work at dawn" loading="lazy" width="960" height="641" />
+        <img src="images/big-game/own/bull-elk-archery-aspens.jpg" alt="Archery bull elk in the aspens" loading="lazy" width="1600" height="1200" />
+        <img src="images/field-scene.jpg" alt="Bird hunting at dawn" loading="lazy" width="768" height="432" />
+        <img src="images/big-game/own/bull-tahr-southern-alps.jpg" alt="Bull tahr below snowy peaks" loading="lazy" width="2000" height="1500" />
+        <img src="images/golden-retriever-puppies.png" alt="Golden retriever puppies" loading="lazy" width="800" height="600" />
+        <img src="images/big-game/own/mountain-goat-pack-out.jpg" alt="Packing a mountain goat off a steep slope" loading="lazy" width="1400" height="1867" style="object-position:center 35%;" />
+        <img src="images/tyce-training.jpg" alt="Tyce Erickson training a golden retriever" loading="lazy" width="768" height="432" />
+        <img src="images/big-game/own/black-bear-archery.jpg" alt="Archery black bear in the timber" loading="lazy" width="1800" height="1350" />
+      </div>
+      <p class="photo-credits">
+        Background photos: <a href="https://www.pexels.com/photo/a-mountain-range-with-trees-and-a-lake-in-the-middle-27601149/" target="_blank" rel="noopener">Alex Moliski</a>
+        and <a href="https://www.pexels.com/photo/big-stag-with-massive-antlers-standing-in-fields-10924664/" target="_blank" rel="noopener">Aaron Brewer</a> on Pexels.
+      </p>
+    </section>
+
     <footer class="site-footer">
       <div class="footer-inner">
-        <p class="footer-brand">The Bird Dog Podcast</p>
+        <div class="footer-brand-block">
+          <a href="/" class="footer-logo">
+            <img src="/images/brand/bdbg_wordmark_stacked_cream.png" alt="Bird Dogs &amp; Big Game" width="140" height="86" />
+          </a>
+          <p class="footer-tagline">From the duck blind to the high country.</p>
+          <p class="footer-radio"><a href="https://onair.outdoorradionetwork.com/orn-show-how-to-listen/" target="_blank" rel="noopener">On air Tuesdays on the Outdoor Radio Network</a></p>
+        </div>
         <ul class="footer-links">
           <li><a href="episodes.html">Episodes</a></li>
           <li><a href="partners.html">Partners</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-                <div class="footer-social-row">
-          <a href="https://www.instagram.com/thebirddogpodcast/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+        <div class="footer-social-row">
+          <a href="https://www.instagram.com/birddogsandbiggame/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            Instagram
+            @birddogsandbiggame
           </a>
         </div>
-        <p class="footer-copy">&copy; 2026 The Bird Dog Podcast with Tyce Erickson. All rights reserved.</p>
+        <p class="footer-copy">&copy; 2026 Bird Dogs &amp; Big Game with Tyce Erickson. Formerly The Bird Dog Podcast. All rights reserved.</p>
       </div>
     </footer>
+    <script src="/js/announce-bar.js"></script>
   </body>
 </html>

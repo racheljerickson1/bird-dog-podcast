@@ -2,26 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-  <link rel="icon" href="images/logo.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/brand/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="The Bird Dog Podcast with Tyce Erickson — authoritative conversations on bird hunting, gun dogs, and the upland life."
+      content="Gun dogs, upland and waterfowl hunts, and western big game with Tyce Erickson of Utah Bird Dog Training. Now airing Tuesdays on the Outdoor Radio Network."
     />
-    <title>The Bird Dog Podcast with Tyce Erickson</title>
+    <title>Bird Dogs &amp; Big Game with Tyce Erickson | Hunting Podcast</title>
     <link rel="canonical" href="https://www.thebirddogpodcast.com/" />
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="The Bird Dog Podcast" />
-    <meta property="og:title" content="The Bird Dog Podcast with Tyce Erickson" />
-    <meta property="og:description" content="Authoritative conversations on bird hunting, gun dogs, and the upland life — hosted by Tyce Erickson of Utah Bird Dog Training." />
-    <meta property="og:image" content="https://thebirddogpodcast.com/images/website-logo.png" />
+    <meta property="og:site_name" content="Bird Dogs &amp; Big Game" />
+    <meta property="og:title" content="Bird Dogs &amp; Big Game with Tyce Erickson" />
+    <meta property="og:description" content="Conversations on gun dogs, bird hunting, and western big game with Tyce Erickson. New episodes every week, and on the radio Tuesdays on the Outdoor Radio Network." />
+    <meta property="og:image" content="https://www.thebirddogpodcast.com/images/brand/bdbg_og_1200x630.jpg" />
     <meta property="og:url" content="https://thebirddogpodcast.com/" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="The Bird Dog Podcast with Tyce Erickson" />
-    <meta name="twitter:description" content="Authoritative conversations on bird hunting, gun dogs, and the upland life — hosted by Tyce Erickson." />
-    <meta name="twitter:image" content="https://thebirddogpodcast.com/images/website-logo.png" />
+    <meta name="twitter:title" content="Bird Dogs &amp; Big Game with Tyce Erickson" />
+    <meta name="twitter:description" content="Conversations on gun dogs, bird hunting, and western big game with Tyce Erickson. New episodes every week, and on the radio Tuesdays on the Outdoor Radio Network." />
+    <meta name="twitter:image" content="https://www.thebirddogpodcast.com/images/brand/bdbg_og_1200x630.jpg" />
     <link rel="stylesheet" href="styles.css" />
     <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTGSD7MPC"></script>
@@ -33,12 +35,22 @@
   </script>
 </head>
   <body>
+    <div class="announce-bar" id="announce-bar" hidden>
+      <p>Now airing Tuesdays on the Outdoor Radio Network. <a href="https://onair.outdoorradionetwork.com/orn-show-how-to-listen/" target="_blank" rel="noopener">Listen live</a> -&gt;</p>
+      <button type="button" class="announce-bar-close" id="announce-bar-close" aria-label="Dismiss announcement">&times;</button>
+    </div>
     <nav class="site-nav">
       <div class="nav-inner">
         <a href="/" class="nav-logo">
-          <img src="images/website-logo.png" alt="The Bird Dog Podcast" />
+          <img src="/images/brand/bdbg_mark_green_512.png" alt="" width="44" height="44" />
+          <span>Bird Dogs &amp; Big Game</span>
         </a>
-        <ul class="nav-links">
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
           <li><a href="/">Home</a></li>
           <li><a href="episodes.html">Episodes</a></li>
           <li><a href="partners.html">Partners</a></li>
@@ -48,20 +60,30 @@
       </div>
     </nav>
 
-    <!-- Full-bleed hero — outside page-main so it spans 100% width -->
     <section class="hero">
-      <img
-        src="images/black-lab.jpg"
-        alt="Black lab in a hunting vest with Canada geese"
-        class="hero-bg"
-      />
+      <div class="hero-photos">
+        <img
+          src="images/black-lab.jpg"
+          alt="Black lab in a hunting vest with Canada geese"
+          class="hero-bg"
+          width="960"
+          height="564"
+        />
+        <img
+          src="images/big-game/own/glassing-spotting-scope.jpg"
+          alt="Tyce Erickson glassing a mountain basin with binoculars and a spotting scope"
+          class="hero-bg-right"
+          width="1400"
+          height="2100"
+        />
+      </div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
-        <p class="section-label">Bird Hunting &amp; Gun Dogs</p>
-        <h1>Conversations for Bird Dog People.</h1>
+        <a href="#listen" class="hero-badge">Now airing Tuesdays on the Outdoor Radio Network</a>
+        <p class="section-label">Gun Dogs &amp; Big Game</p>
+        <h1>From the Duck Blind to the High Country.</h1>
         <p class="lead">
-          Training, hunting, breeding, and the experiences that come from a
-          life spent working dogs — with host Tyce Erickson.
+          Nearly two decades of training bird dogs in Utah, and a lifetime of chasing elk and mule deer. Host Tyce Erickson talks gun dogs, upland and waterfowl hunting, and western big game with the trainers, guides, biologists, and hunters who live it.
         </p>
         <div class="btn-group">
           <a href="episodes.html" class="btn btn-primary">Listen to the Latest Episode</a>
@@ -70,24 +92,83 @@
       </div>
     </section>
 
+    <section class="listen-band" id="listen">
+      <img
+        class="listen-band-bg"
+        src="images/big-game/high-uintas-basin.jpg"
+        alt=""
+        width="1900"
+        height="1267"
+      />
+      <div class="listen-band-overlay" aria-hidden="true"></div>
+      <div class="listen-band-inner">
+        <div>
+          <p class="section-label" style="color:var(--tan);">Podcast apps</p>
+          <h2>Listen on your favorite platform</h2>
+          <div class="btn-group">
+            <a href="https://podcasts.apple.com/us/podcast/the-bird-dog-podcast/id1685804225" class="btn btn-secondary" target="_blank" rel="noopener">Apple Podcasts</a>
+            <a href="https://open.spotify.com/show/53ilsNPxZ7pPlVF27GxyRc" class="btn btn-secondary" target="_blank" rel="noopener">Spotify</a>
+            <a href="https://music.amazon.com/podcasts/ae1b5ad2-8148-4c20-b679-09448b900672" class="btn btn-secondary" target="_blank" rel="noopener">Amazon Music</a>
+          </div>
+        </div>
+        <div>
+          <p class="section-label" style="color:var(--tan);">On the radio</p>
+          <h2>Tuesdays on the Outdoor Radio Network</h2>
+          <!-- TODO: add ORN air time -->
+          <p>Catch Bird Dogs &amp; Big Game on ORN, America's 24/7 outdoor radio station.</p>
+          <div class="btn-group">
+            <a href="https://www.iheart.com/live/outdoor-radio-network-10472/" class="btn btn-secondary" target="_blank" rel="noopener">Listen live on iHeartRadio</a>
+            <a href="https://outdoorradionetwork.com/mobile/" class="btn btn-secondary" target="_blank" rel="noopener">Get the ORN app</a>
+            <a href="https://onair.outdoorradionetwork.com/orn-show-how-to-listen/" class="btn btn-secondary" target="_blank" rel="noopener">All ways to listen</a>
+          </div>
+          <!-- TODO: add ORN show page link when ORN publishes one -->
+          <p class="listen-note">Or just say "Alexa, play Outdoor Radio Network."</p>
+        </div>
+      </div>
+    </section>
+
     <main class="page-main">
-      <!-- Listen -->
       <section class="section-block">
-        <p class="section-label">Listen</p>
-        <h2>Find us on your favorite platform</h2>
-        <div class="btn-group">
-          <a href="https://podcasts.apple.com/us/podcast/the-bird-dog-podcast/id1685804225" class="btn btn-secondary" target="_blank" rel="noopener">Apple Podcasts</a>
-          <a href="https://open.spotify.com/show/53ilsNPxZ7pPlVF27GxyRc" class="btn btn-secondary" target="_blank" rel="noopener">Spotify</a>
-          <a href="https://music.amazon.com/podcasts/ae1b5ad2-8148-4c20-b679-09448b900672" class="btn btn-secondary" target="_blank" rel="noopener">Amazon Music</a>
+        <p class="section-label">The show</p>
+        <h2>What we cover</h2>
+        <div class="cover-grid">
+          <a href="episodes.html" class="cover-card">
+            <div class="cover-card-img">
+              <img
+                src="images/dawn-hunt.jpg"
+                alt="Bird dog work at dawn"
+                width="960"
+                height="641"
+              />
+            </div>
+            <div class="cover-card-body">
+              <h3>Bird Dogs</h3>
+              <p>Training, upland and waterfowl hunting, breeding, health, and the dogs that make the season.</p>
+            </div>
+          </a>
+          <a href="episodes.html" class="cover-card">
+            <div class="cover-card-img">
+              <img
+                src="images/big-game/own/red-stag-mountain-lake.jpg"
+                alt="Tyce Erickson with a red stag above a mountain lake"
+                width="1600"
+                height="1200"
+                style="object-position:center 60%;"
+              />
+            </div>
+            <div class="cover-card-body">
+              <h3>Big Game</h3>
+              <p>Elk, mule deer, sheep and goats, and the high country. Scouting, glassing, gear, and the stories from the hunt.</p>
+            </div>
+          </a>
         </div>
       </section>
 
-      <!-- Recent episodes — populated dynamically from RSS feed -->
+      <!-- Recent episodes, populated dynamically from RSS feed -->
       <section class="section-block">
         <p class="section-label">Latest</p>
         <h2>Recent Episodes</h2>
         <div class="card-grid" id="recent-episodes-grid">
-          <!-- JS fills this in; static fallback shown while loading -->
           <article class="card">
             <div class="card-img-wrap">
               <img src="images/episode-54.jpg" alt="Dove Hunting and getting your dog ready for the hunt" />
@@ -107,7 +188,7 @@
               <p class="card-episode-num">Episode 53</p>
               <h3><a href="episodes/episode-53.html">Does Your Dog Destroy Your Yard or House When You Are Not There?</a></h3>
               <p class="card-meta">July 21, 2026</p>
-              <p>Tyce digs into destructive dog behavior — what causes it, how to address it, and how to set your dog up for success when home alone.</p>
+              <p>Tyce digs into destructive dog behavior, what causes it, how to address it, and how to set your dog up for success when home alone.</p>
             </div>
           </article>
           <article class="card">
@@ -127,7 +208,6 @@
         </p>
       </section>
 
-      <!-- Explore -->
       <section class="section-block">
         <p class="section-label">Explore</p>
         <h2>More from the show</h2>
@@ -137,6 +217,9 @@
               <img
                 src="images/tyce-training.jpg"
                 alt="Tyce Erickson training a golden retriever in a field"
+                loading="lazy"
+                width="768"
+                height="432"
               />
             </div>
             <div class="card-body">
@@ -149,25 +232,27 @@
               <img
                 src="images/field-scene.jpg"
                 alt="Bird hunting at dawn"
+                loading="lazy"
+                width="768"
+                height="432"
               />
             </div>
             <div class="card-body">
               <h3><a href="about.html">About Tyce</a></h3>
-              <p>Meet the host and the story behind the podcast.</p>
+              <p>Meet the host and the story behind the show.</p>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- Contact -->
       <section class="contact-band">
         <div class="contact-band-inner">
           <div class="contact-band-intro">
             <p class="section-label" style="color:var(--wheat-dark,#c8a96e);">Get in Touch</p>
             <h2>Ready to Work Together?</h2>
             <p>
-              Sponsorships, partnerships, guest appearances, or just a question —
-              send a note and Tyce will get back to you.
+              Sponsorships, partnerships, guest appearances, or just a question.
+              Send a note and Tyce will get back to you.
             </p>
             <div style="margin-top:1.5rem;font-size:0.9rem;opacity:0.85;">
               ✉ <a href="mailto:office@utahbirddogtraining.com" style="color:inherit;">office@utahbirddogtraining.com</a>
@@ -233,39 +318,56 @@
           </script>
         </div>
       </section>
+    </main>
 
-      <!-- CTA -->
-      <section class="cta-band">
+    <section class="cta-band cta-band-photo">
+      <img
+        class="cta-band-photo-img"
+        src="images/big-game/bull-elk-fog-meadow.jpg"
+        alt=""
+        loading="lazy"
+        width="1900"
+        height="1267"
+      />
+      <div class="cta-band-photo-overlay" aria-hidden="true"></div>
+      <div class="cta-band-inner">
         <h2>Never miss an episode</h2>
         <p>
-          Subscribe on your favorite platform and join a community of bird
-          hunters and dog handlers who take the craft seriously.
+          Subscribe on your favorite podcast app, or catch the show on the radio every Tuesday on the Outdoor Radio Network. Join a community of hunters and dog people who take the craft seriously.
         </p>
         <a href="episodes.html" class="btn btn-primary">Start Listening</a>
-      </section>
-    </main>
+      </div>
+    </section>
 
     <footer class="site-footer">
       <div class="footer-inner">
-        <p class="footer-brand">The Bird Dog Podcast</p>
+        <div class="footer-brand-block">
+          <a href="/" class="footer-logo">
+            <img src="/images/brand/bdbg_wordmark_stacked_cream.png" alt="Bird Dogs &amp; Big Game" width="140" height="86" />
+          </a>
+          <p class="footer-tagline">From the duck blind to the high country.</p>
+          <p class="footer-radio"><a href="https://onair.outdoorradionetwork.com/orn-show-how-to-listen/" target="_blank" rel="noopener">On air Tuesdays on the Outdoor Radio Network</a></p>
+        </div>
         <ul class="footer-links">
           <li><a href="episodes.html">Episodes</a></li>
           <li><a href="partners.html">Partners</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-                <div class="footer-social-row">
-          <a href="https://www.instagram.com/thebirddogpodcast/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+        <div class="footer-social-row">
+          <a href="https://www.instagram.com/birddogsandbiggame/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            Instagram
+            @birddogsandbiggame
           </a>
         </div>
-        <p class="footer-copy">&copy; 2026 The Bird Dog Podcast with Tyce Erickson. All rights reserved.</p>
+        <p class="footer-copy">&copy; 2026 Bird Dogs &amp; Big Game with Tyce Erickson. Formerly The Bird Dog Podcast. All rights reserved.</p>
       </div>
     </footer>
+    <script src="/js/announce-bar.js"></script>
     <script>
     (async function loadRecentEpisodes() {
       const RSS_URL = 'https://feeds.buzzsprout.com/2157578.rss';
+      const badgeFallback = 'images/brand/bdbg_badge_green_512.png';
       try {
         const resp = await fetch(RSS_URL);
         if (!resp.ok) return;
@@ -290,7 +392,6 @@
         const allLink = document.getElementById('all-episodes-link');
         if (!grid) return;
 
-        // Update total episode count on "View all" button
         const totalEps = xml.querySelectorAll('item').length;
         if (allLink) allLink.textContent = `View all ${totalEps} episodes`;
 
@@ -300,7 +401,6 @@
           const rawDesc = item.querySelector('description')?.textContent ?? '';
           const desc = rawDesc.replace(/<[^>]*>/g, '').trim().slice(0, 140).replace(/\s\S+$/, '') + '\u2026';
 
-          // Episode number — itunes:episode or parse from title
           const epEl = item.getElementsByTagName('itunes:episode')[0];
           let epNum = epEl?.textContent?.trim();
           if (!epNum) {
@@ -308,20 +408,15 @@
             epNum = m ? (m[1] || m[2] || m[3]) : null;
           }
 
-          // Image — prefer a local episode image, fall back to RSS/channel artwork
           const itunesImg = item.getElementsByTagName('itunes:image')[0]?.getAttribute('href');
           const mediaThumb = item.getElementsByTagName('media:thumbnail')[0]?.getAttribute('url');
           const channelImg = xml.querySelector('channel')?.getElementsByTagName('itunes:image')[0]?.getAttribute('href');
-          const rssImg = itunesImg || mediaThumb || channelImg || 'images/website-logo.png';
+          const rssImg = itunesImg || mediaThumb || channelImg || badgeFallback;
 
-          // Try local episode image first (jpg then png), fall back to logo
           const localImgBase = epNum ? `images/episode-${epNum}` : null;
           const imgPosition = { '57': 'center top' }[epNum] || 'center';
-
-          // Episode page link
           const epLink = epNum ? `episodes/episode-${epNum}.html` : '#';
 
-          // Formatted date
           let dateStr = '';
           if (pubDate) {
             const d = new Date(pubDate);
@@ -331,10 +426,10 @@
           return `<article class="card">
             <div class="card-img-wrap">
               <img
-                src="${localImgBase ? localImgBase + '.jpg' : 'images/website-logo.png'}"
+                src="${localImgBase ? localImgBase + '.jpg' : badgeFallback}"
                 alt="${title.replace(/"/g, '&quot;')}"
                 style="object-position:${imgPosition}"
-                onerror="if(this.src.endsWith('.jpg')&&'${localImgBase}'){this.src='${localImgBase}.png';}else if(!this.src.includes('website-logo')){this.src='images/website-logo.png';}else{this.onerror=null;}"
+                onerror="if(this.src.endsWith('.jpg')&&'${localImgBase}'){this.src='${localImgBase}.png';}else if(!this.src.includes('bdbg_badge')){this.src='${badgeFallback}';}else{this.onerror=null;}"
               />
             </div>
             <div class="card-body">
@@ -347,7 +442,7 @@
         }).join('\n');
 
       } catch (e) {
-        // Network or parse error — static fallback cards remain visible
+        // Network or parse error: static fallback cards remain visible
       }
     })();
     </script>

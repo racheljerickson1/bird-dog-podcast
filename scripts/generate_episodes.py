@@ -26,6 +26,13 @@ BASE_URL     = 'https://www.thebirddogpodcast.com'
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EPISODES_DIR = os.path.join(PROJECT_ROOT, 'episodes')
 IMAGES_DIR   = os.path.join(PROJECT_ROOT, 'images')
+INSTAGRAM_HANDLE = 'birddogsandbiggame'
+INSTAGRAM_URL = f'https://www.instagram.com/{INSTAGRAM_HANDLE}/'
+INSTAGRAM_TEXT = f'@{INSTAGRAM_HANDLE}'
+SHOW_NAME = 'Bird Dogs & Big Game'
+OG_DEFAULT = f'{BASE_URL}/images/brand/bdbg_og_1200x630.jpg'
+BADGE_IMG = '../images/brand/bdbg_badge_green_512.png'
+BADGE_LISTING = 'images/brand/bdbg_badge_green_512.png'
 
 NS = {
     'itunes':  'http://www.itunes.com/dtds/podcast-1.0.dtd',
@@ -73,24 +80,31 @@ GA_SNIPPET = '''    <!-- Google tag (gtag.js) -->
       gtag('config', 'G-MCTGSD7MPC');
     </script>'''
 
-FOOTER_HTML = '''    <footer class="site-footer">
+FOOTER_HTML = f'''    <footer class="site-footer">
       <div class="footer-inner">
-        <p class="footer-brand">The Bird Dog Podcast</p>
+        <div class="footer-brand-block">
+          <a href="/" class="footer-logo">
+            <img src="/images/brand/bdbg_wordmark_stacked_cream.png" alt="Bird Dogs &amp; Big Game" width="140" height="86" />
+          </a>
+          <p class="footer-tagline">From the duck blind to the high country.</p>
+          <p class="footer-radio"><a href="https://onair.outdoorradionetwork.com/orn-show-how-to-listen/" target="_blank" rel="noopener">On air Tuesdays on the Outdoor Radio Network</a></p>
+        </div>
         <ul class="footer-links">
-          <li><a href="../episodes.html">Episodes</a></li>
-          <li><a href="../partners.html">Partners</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="/episodes.html">Episodes</a></li>
+          <li><a href="/partners.html">Partners</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
         <div class="footer-social-row">
-          <a href="https://www.instagram.com/thebirddogpodcast/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+          <a href="{INSTAGRAM_URL}" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            Instagram
+            {INSTAGRAM_TEXT}
           </a>
         </div>
-        <p class="footer-copy">&copy; 2026 The Bird Dog Podcast with Tyce Erickson. All rights reserved.</p>
+        <p class="footer-copy">&copy; 2026 Bird Dogs &amp; Big Game with Tyce Erickson. Formerly The Bird Dog Podcast. All rights reserved.</p>
       </div>
-    </footer>'''
+    </footer>
+    <script src="/js/announce-bar.js"></script>'''
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -242,7 +256,8 @@ def build_episode_page(ep):
 
     og_image = (
         f'{BASE_URL}/images/{os.path.basename(local_img)}'
-        if local_img else f'{BASE_URL}/images/website-logo.png'
+        if local_img and 'bdbg_badge' not in local_img and 'website-logo' not in local_img
+        else OG_DEFAULT
     )
 
     # Short description for meta tags (160 chars max)
@@ -250,7 +265,7 @@ def build_episode_page(ep):
     meta_desc = (desc_flat[:157] + '…') if len(desc_flat) > 160 else desc_flat
     meta_desc = meta_desc.replace('"', '&quot;')
 
-    page_title = f'Ep. {n}: {title} — The Bird Dog Podcast'
+    page_title = f'Ep. {n}: {title} | Bird Dogs & Big Game'
 
     # Show notes body — episode copy only, plus a training link
     show_notes_html = ''.join(f'          <p>{p}</p>\n' for p in desc_paras)
@@ -299,13 +314,16 @@ def build_episode_page(ep):
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/brand/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="{meta_desc}" />
     <title>{page_title}</title>
     <link rel="canonical" href="{BASE_URL}/episodes/episode-{n}.html" />
     <!-- Open Graph -->
     <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="The Bird Dog Podcast" />
+    <meta property="og:site_name" content="Bird Dogs &amp; Big Game" />
     <meta property="og:title" content="{page_title}" />
     <meta property="og:description" content="{meta_desc}" />
     <meta property="og:image" content="{og_image}" />
@@ -326,7 +344,7 @@ def build_episode_page(ep):
       "description": "{meta_desc.replace(chr(34), chr(39))}",
       "partOfSeries": {{
         "@type": "PodcastSeries",
-        "name": "The Bird Dog Podcast",
+        "name": "Bird Dogs & Big Game",
         "url": "{BASE_URL}/"
       }},
       "author": {{
@@ -339,17 +357,27 @@ def build_episode_page(ep):
 {GA_SNIPPET}
   </head>
   <body>
+    <div class="announce-bar" id="announce-bar" hidden>
+      <p>Now airing Tuesdays on the Outdoor Radio Network. <a href="https://onair.outdoorradionetwork.com/orn-show-how-to-listen/" target="_blank" rel="noopener">Listen live</a> -&gt;</p>
+      <button type="button" class="announce-bar-close" id="announce-bar-close" aria-label="Dismiss announcement">&times;</button>
+    </div>
     <nav class="site-nav">
       <div class="nav-inner">
         <a href="/" class="nav-logo">
-          <img src="../images/website-logo.png" alt="The Bird Dog Podcast" />
+          <img src="/images/brand/bdbg_mark_green_512.png" alt="" width="44" height="44" />
+          <span>Bird Dogs &amp; Big Game</span>
         </a>
-        <ul class="nav-links">
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
           <li><a href="/">Home</a></li>
-          <li><a href="../episodes.html" class="active">Episodes</a></li>
-          <li><a href="../partners.html">Partners</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="/episodes.html" class="active">Episodes</a></li>
+          <li><a href="/partners.html">Partners</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -404,8 +432,8 @@ def build_episode_page(ep):
           Tyce Erickson is a professional bird dog trainer and the owner of
           <a href="https://www.utahbirddogtraining.com" target="_blank" rel="noopener">Utah Bird Dog Training</a>
           in Utah. For nearly two decades he has worked with pointing dogs, retrievers, and family
-          hunting dogs — helping owners build dogs that are capable and enjoyable in the field.
-          The Bird Dog Podcast is an extension of that work: honest conversations on training,
+          hunting dogs, helping owners build dogs that are capable and enjoyable in the field.
+          Bird Dogs &amp; Big Game is an extension of that work: honest conversations on training,
           hunting, breeding, and everything that goes into a life spent working dogs.
         </p>
         <a href="../about.html" class="btn btn-outline" style="margin-top:1rem;display:inline-block;">More About Tyce</a>
@@ -448,7 +476,7 @@ def update_episodes_list(all_episodes):
     )
     content = re.sub(
         r'<meta name="description" content="All \d+ episodes[^"]*"',
-        f'<meta name="description" content="All {total} episodes of The Bird Dog Podcast with Tyce Erickson — bird dog training, hunting, breeding, and more."',
+        '<meta name="description" content="Every episode of Bird Dogs &amp; Big Game, including the full archive from The Bird Dog Podcast."',
         content
     )
 
@@ -457,14 +485,14 @@ def update_episodes_list(all_episodes):
     for ep in sorted(all_episodes, key=lambda e: -e['number']):
         date_short = ep.get('date_short', ep.get('date_display', ''))
         n = ep['number']
-        thumb_src = 'images/website-logo.png'
+        thumb_src = BADGE_LISTING
         for ext in ('jpg', 'jpeg', 'png', 'webp'):
             if os.path.exists(os.path.join(IMAGES_DIR, f'episode-{n}.{ext}')):
                 thumb_src = f'images/episode-{n}.{ext}'
                 break
         items.append(f'''        <li>
           <a href="episodes/episode-{n}.html">
-            <img class="episode-thumb" src="{thumb_src}" alt="Episode {n}" onerror="if(this.src.endsWith('.jpg')){{this.src='images/episode-{n}.png';}}else if(!this.src.includes('website-logo')){{this.src='images/website-logo.png';}}else{{this.onerror=null;}}" />
+            <img class="episode-thumb" src="{thumb_src}" alt="Episode {n}" onerror="if(this.src.endsWith('.jpg')){{this.src='images/episode-{n}.png';}}else if(!this.src.includes('bdbg_badge')){{this.src='{BADGE_LISTING}';}}else{{this.onerror=null;}}" />
             <span class="episode-num">{n}</span>
             <span class="episode-info">
               <h3>{ep['title']}</h3>
@@ -586,19 +614,19 @@ def main():
             except Exception as e:
                 print(f'    Image download failed: {e}')
 
-        # No Buzzsprout artwork — use the podcast logo so the page never ships without a photo
+        # No Buzzsprout artwork — use the brand badge so the page never ships without a photo
         if not local_img_path:
-            local_img_path = '../images/website-logo.png'
+            local_img_path = BADGE_IMG
 
-        # If the page already exists but still uses the logo, add/swap in unique artwork
-        if local_img_path and 'website-logo' not in local_img_path and os.path.exists(ep_file):
+        # If the page already exists but still uses the placeholder, add/swap in unique artwork
+        if local_img_path and 'bdbg_badge' not in local_img_path and 'website-logo' not in local_img_path and os.path.exists(ep_file):
             with open(ep_file) as f:
                 existing = f.read()
             body = existing.split('<body', 1)[-1] if '<body' in existing else existing
             figure_missing = '<figure' not in existing
             still_on_logo = (
                 f'episode-{ep_num}.' not in body
-                and 'website-logo.png' in existing
+                and ('website-logo.png' in existing or 'bdbg_badge' in existing)
             )
             if figure_missing or still_on_logo:
                 figure = (
@@ -621,13 +649,13 @@ def main():
                     )
                 abs_img = f'https://www.thebirddogpodcast.com/images/{os.path.basename(local_img_path)}'
                 existing = re.sub(
-                    r'(<meta property="og:image" content=")https://www\.thebirddogpodcast\.com/images/website-logo\.png(")',
+                    r'(<meta property="og:image" content=")https://www\.thebirddogpodcast\.com/images/(?:website-logo\.png|brand/bdbg_og_1200x630\.jpg)(")',
                     rf'\1{abs_img}\2',
                     existing,
                     count=1,
                 )
                 existing = re.sub(
-                    r'(<meta name="twitter:image" content=")https://www\.thebirddogpodcast\.com/images/website-logo\.png(")',
+                    r'(<meta name="twitter:image" content=")https://www\.thebirddogpodcast\.com/images/(?:website-logo\.png|brand/bdbg_og_1200x630\.jpg)(")',
                     rf'\1{abs_img}\2',
                     existing,
                     count=1,
