@@ -1,9 +1,7 @@
 {
   "redirects": [
-    {
-      "source": "/index.html",
-      "destination": "/",
-      "permanent": true
-    }
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/:path*", "has": [{ "type": "host", "value": "thebirddogpodcast.com" }], "destination": "https://www.birddogsandbiggame.com/:path*", "permanent": true },
+    { "source": "/:path*", "has": [{ "type": "host", "value": "www.thebirddogpodcast.com" }], "destination": "https://www.birddogsandbiggame.com/:path*", "permanent": true }
   ]
 }

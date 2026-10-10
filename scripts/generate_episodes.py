@@ -22,7 +22,7 @@ from datetime import datetime, date
 
 # ── Config ────────────────────────────────────────────────────────────────────
 RSS_URL      = 'https://feeds.buzzsprout.com/2157578.rss'
-BASE_URL     = 'https://www.thebirddogpodcast.com'
+BASE_URL     = 'https://www.birddogsandbiggame.com'
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EPISODES_DIR = os.path.join(PROJECT_ROOT, 'episodes')
 IMAGES_DIR   = os.path.join(PROJECT_ROOT, 'images')
@@ -50,7 +50,8 @@ BOILERPLATE_CUTOFFS = [
 ]
 
 SKIP_RESOURCE_HOSTS = (
-    'buzzsprout.com', 'apple.com', 'spotify.com', 'thebirddogpodcast.com',
+    'buzzsprout.com', 'apple.com', 'spotify.com',
+    'thebirddogpodcast.com', 'birddogsandbiggame.com',
     'gunshyfix.com', 'kuranda.com',     'nuvet.com', 'utahbirddogtraining.com',
     'fieldbredgoldenretrievers.com', 'utahpointinglabs.com',
     'paradigmsportingdog.com', 'gunner.pxf.io', 'gunner.com',
@@ -647,15 +648,15 @@ def main():
                         existing,
                         count=1,
                     )
-                abs_img = f'https://www.thebirddogpodcast.com/images/{os.path.basename(local_img_path)}'
+                abs_img = f'{BASE_URL}/images/{os.path.basename(local_img_path)}'
                 existing = re.sub(
-                    r'(<meta property="og:image" content=")https://www\.thebirddogpodcast\.com/images/(?:website-logo\.png|brand/bdbg_og_1200x630\.jpg)(")',
+                    r'(<meta property="og:image" content=")https://www\.(?:thebirddogpodcast|birddogsandbiggame)\.com/images/(?:website-logo\.png|brand/bdbg_og_1200x630\.jpg)(")',
                     rf'\1{abs_img}\2',
                     existing,
                     count=1,
                 )
                 existing = re.sub(
-                    r'(<meta name="twitter:image" content=")https://www\.thebirddogpodcast\.com/images/(?:website-logo\.png|brand/bdbg_og_1200x630\.jpg)(")',
+                    r'(<meta name="twitter:image" content=")https://www\.(?:thebirddogpodcast|birddogsandbiggame)\.com/images/(?:website-logo\.png|brand/bdbg_og_1200x630\.jpg)(")',
                     rf'\1{abs_img}\2',
                     existing,
                     count=1,
