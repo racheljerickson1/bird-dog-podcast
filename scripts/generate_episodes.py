@@ -72,8 +72,7 @@ STANDARD_RESOURCES = [
 
 FILLER = re.compile(r'\b(um+|uh+|hmm+|mhm+|uh-huh)\b', re.I)
 
-GA_SNIPPET = '''    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTGSD7MPC"></script>
+GA_SNIPPET = '''    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCTGSD7MPC"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -315,6 +314,7 @@ def build_episode_page(ep):
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+{GA_SNIPPET}
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/images/brand/favicon/favicon-32x32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -355,7 +355,6 @@ def build_episode_page(ep):
       }}
     }}
     </script>
-{GA_SNIPPET}
   </head>
   <body>
     <div class="announce-bar" id="announce-bar" hidden>
