@@ -37,11 +37,26 @@
 (function () {
   var toggle = document.getElementById('nav-toggle');
   var nav = document.querySelector('.site-nav');
+  var links = document.getElementById('nav-links');
   if (!toggle || !nav) return;
 
-  toggle.addEventListener('click', function () {
-    var open = nav.classList.toggle('is-open');
+  function setOpen(open) {
+    nav.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (links) links.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+
+  toggle.addEventListener('click', function () {
+    setOpen(!nav.classList.contains('is-open'));
+  });
+
+  nav.querySelectorAll('.nav-links a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      // Delay hiding so display:none does not cancel the tap navigation.
+      setTimeout(function () {
+        setOpen(false);
+      }, 80);
+    });
   });
 })();
