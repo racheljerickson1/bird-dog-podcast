@@ -55,7 +55,7 @@ SKIP_RESOURCE_HOSTS = (
     'gunshyfix.com', 'kuranda.com',     'nuvet.com', 'utahbirddogtraining.com',
     'fieldbredgoldenretrievers.com', 'utahpointinglabs.com',
     'paradigmsportingdog.com', 'gunner.pxf.io', 'gunner.com',
-    'allamericancanine.com',
+    'allamericancanine.com', 'hossstraps.com',
 )
 
 STANDARD_RESOURCES = [
@@ -64,6 +64,7 @@ STANDARD_RESOURCES = [
     ('https://gunner.pxf.io/c/7724546/2007558/24794', 'Gunner', 'Crash-tested kennels, bumpers, and gear for working dogs.'),
     ('https://www.nuvet.com/56496', 'NuVet', 'Cold-pressed supplements for optimal dog health.'),
     ('https://allamericancanine.com/utahbirddog', 'All American Canine', 'Made-in-the-USA treats and supplements for working dogs. Promo code: UTAHBIRDDOG.'),
+    ('https://www.hossstraps.com', 'HOSS Straps', 'Weatherproof dog collars, e-collar straps, and gear straps. Promo code: UTBD15.'),
     ('https://www.paradigmsportingdog.com/collections/paradigm-first-aid-kits?dt_id=3443993', 'Paradigm Sporting Dog', 'Veterinarian-designed first aid kits for bird dogs.'),
     ('https://www.utahbirddogtraining.com', 'Utah Bird Dog Training', "Tyce's professional training services."),
     ('https://www.fieldbredgoldenretrievers.com', 'Field Bred Golden Retrievers', "Tyce and Rachel's golden retriever breeding program."),
